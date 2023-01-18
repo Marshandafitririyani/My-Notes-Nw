@@ -1,9 +1,11 @@
 package com.example.mynotes.injection
 
 import android.content.Context
+import com.crocodic.core.data.CoreSession
 import com.crocodic.core.helper.okhttp.SSLTrust
 import com.example.mynotes.BuildConfig
 import com.example.mynotes.api.ApiService
+import com.example.mynotes.const.Const
 //import com.example.mynotes.api.ApiService
 import com.example.mynotes.data.AppDatabase
 import com.google.gson.FieldNamingPolicy
@@ -17,6 +19,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
+import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import javax.net.ssl.SSLContext
 
@@ -33,8 +36,7 @@ class DataModule {
     fun provideGson() = GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
 
     @Provides
-    fun provideOkHttpClient(): OkHttpClient {
-
+    fun provideOkHttpClient(session: CoreSession): OkHttpClient {
         val unsafeTrustManager = SSLTrust().createUnsafeTrustManager()
         val sslContext = SSLContext.getInstance("SSL")
         sslContext.init(null, arrayOf(unsafeTrustManager), null)
@@ -44,6 +46,20 @@ class DataModule {
             .connectTimeout(90, TimeUnit.SECONDS)
             .readTimeout(90, TimeUnit.SECONDS)
             .writeTimeout(90, TimeUnit.SECONDS)
+            .addInterceptor { chain ->
+                val original = chain.request()
+                val token = session.getString(Const.TOKEN.API_TOKEN)
+                val egld = session.getString(Const.TOKEN.FCM_TOKEN).trim()
+                Timber.d("tokenAndRegid: $token &regId")
+                val requestBuilder = original.newBuilder()
+                    .header("Authorization", "bearer $token")
+                    .header("Contet-Type", "application/json")
+                    .header("platform", "android")
+                    .method(original.method, original.body)
+
+                val request = requestBuilder()
+                chain.proceed(request)
+            }
 
         if (BuildConfig.DEBUG) {
             val interceptors = HttpLoggingInterceptor()
@@ -60,6 +76,7 @@ class DataModule {
         return Retrofit.Builder()
             .baseUrl("http://34.128.80.67/api/user/")
             .addConverterFactory(ScalarsConverterFactory.create())
+            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
             .client(okHttpClient)
             .build().create(ApiService::class.java)
     }
