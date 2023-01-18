@@ -10,9 +10,12 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.crocodic.core.api.ApiStatus
+import com.crocodic.core.data.CoreSession
+import com.crocodic.core.extension.base64encrypt
 import com.crocodic.core.extension.isEmptyRequired
 import com.crocodic.core.extension.openActivity
 import com.crocodic.core.extension.textOf
+import com.crocodic.core.helper.DateTimeHelper
 import com.example.mynotes.Base.BaseActivity
 import com.example.mynotes.R
 import com.example.mynotes.const.Const
@@ -22,10 +25,11 @@ import com.example.mynotes.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import java.time.format.DateTimeFormatter
 
 @AndroidEntryPoint
-class LoginActivity : BaseActivity<ActivityLoginBinding,LoginViewModel>(R.layout.activity_login) {
+class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layout.activity_login) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.btnLogin.setOnClickListener {
@@ -40,7 +44,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding,LoginViewModel>(R.layout
 
             viewModel.login(email, password)
         }
-        //developer@crocodic.comdele
+        //developer@crocodic.com
+
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -61,25 +66,22 @@ class LoginActivity : BaseActivity<ActivityLoginBinding,LoginViewModel>(R.layout
         }
 
     }
-}
-private fun tokenApi() {
-    val current = if (build.VERSION.SDK_INT >= Build.VERSION_CODES .0){
-    localDateTime.now()
-}else {
-    TODO("VERSION.SDK_INT < 0")
 
-}
-val dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-DD")
-val date: String = current.format(dateFormatter)
-val token = "$date|MjAyMi0xMS0wNXxyYWhhc2lh"
-val tokenEncrypt =token.base64encode()
-    session.setValue(Const.TOKEN.API_TOKEN, tokenEncrypt)
+    private fun tokenApi() {
+        val dateNow = DateTimeHelper().dateNow()
+//            val dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-DD")
+//            val date: String = current.format(dateFormatter)
+        val tokeInit = "$dateNow|rahasia"
+        val tokenEncrypt = tokeInit.base64encrypt()
+        CoreSession(this).setValue(Const.TOKEN.API_TOKEN, tokenEncrypt)
 
-    timber.d("Cek Token : $token")
+        Timber.d("Cek Token : $tokeInit")
 
-    lifecycleScope.launch {
-        viewModel.getToken()
+        lifecycleScope.launch {
+            viewModel.getToken()
+        }
     }
 }
+
 
 

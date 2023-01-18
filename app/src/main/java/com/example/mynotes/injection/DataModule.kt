@@ -30,6 +30,9 @@ class DataModule {
     fun provideAppDataBase(@ApplicationContext context: Context) = AppDatabase.getDatabase(context)
 
     @Provides
+    fun provideSession(@ApplicationContext context: Context) = CoreSession(context)
+
+    @Provides
     fun provideUserDao(appDatabase: AppDatabase) = appDatabase.userDao()
 
     @Provides
@@ -57,7 +60,7 @@ class DataModule {
                     .header("platform", "android")
                     .method(original.method, original.body)
 
-                val request = requestBuilder()
+                val request = requestBuilder.build()
                 chain.proceed(request)
             }
 
@@ -76,7 +79,6 @@ class DataModule {
         return Retrofit.Builder()
             .baseUrl("http://34.128.80.67/api/user/")
             .addConverterFactory(ScalarsConverterFactory.create())
-            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
             .client(okHttpClient)
             .build().create(ApiService::class.java)
     }

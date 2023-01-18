@@ -25,4 +25,5 @@ data class Note(
     @SerializedName("photo")
     val photo : String?
 
+
 )
