@@ -40,6 +40,7 @@ class DataModule {
 
     @Provides
     fun provideOkHttpClient(session: CoreSession): OkHttpClient {
+
         val unsafeTrustManager = SSLTrust().createUnsafeTrustManager()
         val sslContext = SSLContext.getInstance("SSL")
         sslContext.init(null, arrayOf(unsafeTrustManager), null)
@@ -55,7 +56,7 @@ class DataModule {
                 val egld = session.getString(Const.TOKEN.FCM_TOKEN).trim()
                 Timber.d("tokenAndRegid: $token &regId")
                 val requestBuilder = original.newBuilder()
-                    .header("Authorization", "bearer $token")
+                    .header("Authorization", token)
                     .header("Contet-Type", "application/json")
                     .header("platform", "android")
                     .method(original.method, original.body)
@@ -77,9 +78,10 @@ class DataModule {
     @Provides
     fun provideApiService(okHttpClient: OkHttpClient): ApiService {
         return Retrofit.Builder()
-            .baseUrl("http://34.128.80.67/api/user/")
+            .baseUrl("http://34.128.80.67/api/")
             .addConverterFactory(ScalarsConverterFactory.create())
             .client(okHttpClient)
             .build().create(ApiService::class.java)
     }
+
 }

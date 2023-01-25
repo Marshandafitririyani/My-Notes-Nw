@@ -1,163 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".profil.ProfilActivity">
+<!--<androidx.constraintlayout.widget.ConstraintLayout-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".profil.ProfilActivity">-->
 
-
-    <LinearLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:context=".ui.AddFriendActivity">
+        android:background="@color/white"
+        tools:context=".profil.ProfilActivity">
 
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:fontFamily="@font/poppinsbold"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+
+    <FrameLayout
+        android:id="@+id/framcontainerProfil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
-            <TextView
-                android:id="@+id/tvLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_margin="10dp"
-                android:fontFamily="@font/poppinsmedium"
-                android:text="Profil"
-                android:textColor="@color/black"
-                android:textSize="25sp" />
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:context=".ui.AddFriendActivity">-->
 
 
-        </LinearLayout>
+<!--        <LinearLayout-->
+<!--            android:id="@+id/linearLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:fontFamily="@font/poppinsbold"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.0"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:contentDescription="profile_photo"
-            android:src="@drawable/profil" />
+<!--            <ImageView-->
+<!--                android:id="@+id/IvProfil"-->
+<!--                android:layout_width="35dp"-->
+<!--                android:layout_height="35dp"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginEnd="1dp"-->
+<!--                android:src="@drawable/back" />-->
 
-        <TextView
+
+<!--            <TextView-->
+<!--                -->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:fontFamily="@font/poppinsmedium"-->
+<!--                android:text="Profil"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="25sp" />-->
+
+
+<!--        </LinearLayout>-->
+
+<!--        <de.hdodenhof.circleimageview.CircleImageView-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_margin="5dp"-->
+<!--            android:contentDescription="profile_photo"-->
+<!--            android:src="@drawable/profil" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/crocodicDeveloper"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/poppinsbold"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Crocodic Developer"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="20sp" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/developerCrocodic"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/poppinsregular"-->
+<!--            android:gravity="center"-->
+<!--            android:text="developer@crocodic.com"-->
+<!--            android:textSize="20sp" />-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/editProfil"-->
+<!--                android:layout_width="200dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginStart="35dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:fontFamily="@font/poppinsmedium"-->
+<!--                android:text="Edit Profil"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="20sp" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/rectangleProfil"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="70dp"-->
+<!--                android:layout_marginStart="80dp"-->
+<!--                android:src="@drawable/ic_person" />-->
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/Logout"-->
+<!--                android:layout_width="200dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginStart="35dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:fontFamily="@font/poppinsmedium"-->
+<!--                android:text="Logout"-->
+<!--                android:textColor="@color/red"-->
+<!--                android:textSize="20sp" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/rectangleLogout"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="70dp"-->
+<!--                android:layout_marginStart="80dp"-->
+<!--                android:src="@drawable/ic_logout" />-->
+<!--        </LinearLayout>-->
+
+
+
+<!--        <FrameLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_marginTop="@dimen/_320sdp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/bottomNavigationView"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        </FrameLayout>-->
+
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/fabBtnCreateNote"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="180dp"-->
+<!--            android:layout_marginEnd="10sp"-->
+<!--            android:background="@color/black"-->
+<!--            app:fabCustomSize="70dp"-->
+<!--            android:src="@drawable/add"-->
+<!--            android:tint="@color/white"-->
+<!--            app:fabSize="normal"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent" />-->
+
+
+<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--            android:id="@+id/bottomNavigationView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/_200sdp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:menu="@menu/buttom_navmenu"-->
+
+<!--            />-->
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBarProfil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinsbold"
-            android:gravity="center"
-            android:text="Crocodic Developer"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:layout_gravity="bottom"
+            app:hideOnScroll="true"
+            app:fabCradleMargin="@dimen/_100sdp"
+            app:fabCradleRoundedCornerRadius="@dimen/_10sdp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinsregular"
-            android:gravity="center"
-            android:text="developer@crocodic.com"
-            android:textSize="20sp" />
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                app:menu="@menu/buttom_navmenu" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppinsmedium"
-                android:text="Edit Profil"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="80dp"
-                android:src="@drawable/ic_person" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppinsmedium"
-                android:text="Logout"
-                android:textColor="@color/red"
-                android:textSize="20sp" />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="80dp"
-                android:src="@drawable/ic_logout" />
-        </LinearLayout>
+        </com.google.android.material.bottomappbar.BottomAppBar>
 
 
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@+id/bottomNavigationView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+<!--    </LinearLayout>-->
 
-        </FrameLayout>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabBtnCreateNote"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginTop="200dp"
-            android:layout_marginEnd="10sp"
-            android:background="@color/black"
-            android:src="@drawable/add"
-            android:tint="@color/white"
-            app:fabSize="normal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/buttom_navmenu"
-
-            />
-
-
-    </LinearLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
 
 </layout>

@@ -12,6 +12,7 @@ import com.example.mynotes.Base.BaseViewModel
 import com.example.mynotes.api.ApiService
 import com.example.mynotes.const.Const
 import com.example.mynotes.data.Note
+import com.example.mynotes.data.User
 import com.example.mynotes.data.UserDao
 import com.google.firebase.crashlytics.internal.model.CrashlyticsReport
 import com.google.gson.Gson
@@ -27,6 +28,7 @@ class LoginViewModel @Inject constructor(
     private val gson: Gson,
     private val userDao: UserDao,
     private val session: CoreSession
+
 ) : BaseViewModel() {
     fun login(email: String, password: String) = viewModelScope.launch {
         _apiResponse.send(ApiResponse().responseLoading())
@@ -35,15 +37,10 @@ class LoginViewModel @Inject constructor(
             false,
             object : ApiObserver.ResponseListener {
                 override suspend fun onSuccess(response: JSONObject) {
-                    val status = response.getInt(ApiCode.STATUS)
-                    if (status == ApiCode.SUCCESS) {
-                        val data = response.getJSONObject(ApiCode.DATA).toObject<Note>(gson)
-                        userDao.insert(data.copy(idRoom = 1))
-                        _apiResponse.send(ApiResponse().responseSuccess())
-                    } else {
-                        val message = response.getString(ApiCode.MESSAGE)
-                        _apiResponse.send(ApiResponse(status = ApiStatus.ERROR, message = message))
-                    }
+                    val data = response.getJSONObject(ApiCode.DATA).toObject<User>(gson)
+                    userDao.insert(data.copy(idRoom = 1))
+                    _apiResponse.send(ApiResponse().responseSuccess())
+//                    session.setValue(Const.USER.STATUS_USER,"login")
                 }
             })
     }
@@ -59,12 +56,9 @@ class LoginViewModel @Inject constructor(
                         //Timber untuk mengecek
                         Timber.d("CekResponToken: $response")
 
-                        val status = response.getInt(ApiCode.STATUS)
-                        if (status == ApiCode.SUCCESS) {
-                            val token = response.getString("token")
-                            session.setValue(Const.TOKEN.API_TOKEN, token)
+                        val token = response.getString("token")
+                        session.setValue(Const.TOKEN.API_TOKEN, token)
 
-                        }
                     }
                     override suspend fun onError(response: ApiResponse){
                         super.onError(response)

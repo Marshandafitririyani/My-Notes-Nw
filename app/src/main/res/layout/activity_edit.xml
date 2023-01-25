@@ -38,7 +38,7 @@
 
 
                 <ImageView
-                    android:id="@+id/iv_back"
+                    android:id="@+id/back"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginStart="10dp"
@@ -58,6 +58,7 @@
             </LinearLayout>
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/EditPhoto"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
@@ -70,7 +71,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="65dp"
                 android:layout_marginEnd="20dp"
                 android:fontFamily="@font/poppinsmedium"
@@ -86,15 +87,36 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/custome_background_text_view_3"
                 android:fontFamily="@font/poppinsregular"
-                android:hint="masukan email"
+                android:hint="masukan name"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:text="Email"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etNameEmail"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/custome_background_text_view_3"
+                android:fontFamily="@font/poppinsregular"
+                android:hint="masukan name"
                 android:padding="8dp" />
 
             <Button
                 android:id="@+id/btnSaveProfil"
-                android:layout_width="300dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="300dp"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_58sdp"
+                android:layout_marginTop="@dimen/_100sdp"
                 android:backgroundTint="@color/teal_200"
                 android:fontFamily="@font/poppinsmedium"
                 android:text="Save"

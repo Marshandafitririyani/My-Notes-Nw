@@ -27,16 +27,26 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.time.format.DateTimeFormatter
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layout.activity_login) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        tokenApi()
+
+        binding.btnRegister.setOnClickListener {
+            tokenApi()
+
+            openActivity<RegisterActivity>(){
+                finish()
+            }
+        }
+
         binding.btnLogin.setOnClickListener {
             if (binding.etEmail.isEmptyRequired(R.string.label_must_fill) || binding.etPassword.isEmptyRequired(
-                    R.string.label_must_fill
-                )
-            ) {
+                    R.string.label_must_fill)) {
                 return@setOnClickListener
             }
             val email = binding.etEmail.textOf()
@@ -45,7 +55,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
             viewModel.login(email, password)
         }
         //developer@crocodic.com
-
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {

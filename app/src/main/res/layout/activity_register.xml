@@ -61,12 +61,13 @@
 
 
         <EditText
+            android:id="@+id/etNameRegister"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@drawable/custome_background_text_view_3"
-            android:hint="masukan_email"
+            android:hint="add name"
             android:padding="8dp" />
 
         <TextView
@@ -80,12 +81,13 @@
             android:textSize="@dimen/_18ssp" />
 
         <EditText
+            android:id="@+id/etEmailRegister"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@drawable/custome_background_text_view_3"
-            android:hint="masukan_email"
+            android:hint="add email"
             android:padding="8dp" />
 
         <TextView
@@ -99,6 +101,7 @@
             android:textSize="@dimen/_18ssp" />
 
         <EditText
+            android:id="@+id/etPasswordRegister"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="@dimen/_20sdp"
@@ -120,6 +123,7 @@
             android:textSize="@dimen/_18ssp" />
 
         <EditText
+            android:id="@+id/etConPasRegister"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="@dimen/_15sdp"

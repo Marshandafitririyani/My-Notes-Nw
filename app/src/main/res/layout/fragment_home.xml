@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".home.screen.HomeFragment">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchhome"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="30dp"
+            android:background="@drawable/custome_background_text_view_3"
+            android:elevation="20dp"
+            android:layoutDirection="rtl" />
+        <!--        app:searchIcon="@drawable/ic__search"-->
+        <!--        app:queryHint="search notes"-->
+        <!--        app:defaultQueryHint="search notes"-->
+        <!--        app:layout_constraintTop_toTopOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
+        <ImageView
+            android:id="@+id/ivSecrol"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="30dp"
+            android:elevation="20dp"
+            android:scaleType="fitXY" />
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                tools:listitem="@layout/custome_card" />
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            app:layout_constraintTop_toBottomOf="@id/searchhome"-->
+        </ScrollView>
+
+
+    </FrameLayout>
+
+</layout>

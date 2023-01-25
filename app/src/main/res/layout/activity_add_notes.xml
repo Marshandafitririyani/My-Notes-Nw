@@ -23,7 +23,7 @@
 
 
         <ImageView
-            android:id="@+id/ivBackAdd"
+            android:id="@+id/iv_kembali"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginStart="10dp"
@@ -40,6 +40,7 @@
         tools:layout_editor_absoluteY="60dp">
 
         <EditText
+            android:id="@+id/etAddTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -52,8 +53,9 @@
             android:textSize="30sp" />
 
         <EditText
+            android:id="@+id/etAddCon"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="@dimen/_358sdp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:background="@color/trasparan"
@@ -62,12 +64,23 @@
             android:hint="Content"
             android:padding="8dp" />
 
+        <Button
+            android:id="@+id/btnSaveAdd"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:text="SAVE"
+            android:backgroundTint="@color/teal_700"
+            android:fontFamily="@font/poppinsmedium"
+            />
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="@font/poppinsregular"
             android:gravity="center"

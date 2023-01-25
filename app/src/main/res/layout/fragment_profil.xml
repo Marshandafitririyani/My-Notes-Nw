@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".home.screen.ProfilFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:context=".ui.AddFriendActivity">
+
+
+                <TextView
+                    android:id="@+id/tvLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:text="Profil"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="profile_photo"
+                    android:src="@drawable/profil" />
+
+                <TextView
+                    android:id="@+id/crocodicDeveloper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsbold"
+                    android:gravity="center"
+                    android:text="Crocodic Developer"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/developerCrocodic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:gravity="center"
+                    android:text="developer@crocodic.com"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/editProfil"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:text="Edit Profil"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/rectangleProfil"
+                        android:layout_width="30dp"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="80dp"
+                        android:src="@drawable/ic_person" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Logout"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:text="Logout"
+                        android:textColor="@color/red"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/rectangleLogout"
+                        android:layout_width="30dp"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="80dp"
+                        android:src="@drawable/ic_logout" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--<androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--    android:layout_width="match_parent"-->
+        <!--    android:layout_height="wrap_content">-->
+
+
+        <!--    <LinearLayout-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="match_parent"-->
+        <!--        android:layout_marginTop="30dp"-->
+        <!--        android:orientation="horizontal">-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/editProfil"-->
+        <!--            android:layout_width="200dp"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:layout_marginStart="35dp"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:fontFamily="@font/poppinsmedium"-->
+        <!--            android:text="Edit Profil"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textSize="20sp" />-->
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/rectangleProfil"-->
+        <!--            android:layout_width="30dp"-->
+        <!--            android:layout_height="70dp"-->
+        <!--            android:layout_marginStart="80dp"-->
+        <!--            android:src="@drawable/ic_person" />-->
+        <!--    </LinearLayout>-->
+
+        <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+
+        <!--    <TextView-->
+        <!--        android:id="@+id/developerCrocodic"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:fontFamily="@font/poppinsregular"-->
+        <!--        android:gravity="center"-->
+        <!--        android:text="developer@crocodic.com"-->
+        <!--        android:textSize="20sp"-->
+        <!--        app:layout_constraintBaseline_toBottomOf="parent" />-->
+
+        <!--    <TextView-->
+        <!--        android:id="@+id/crocodicDeveloper"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginTop="16dp"-->
+
+        <!--        android:fontFamily="@font/poppinsbold"-->
+        <!--        android:gravity="center"-->
+        <!--        android:text="Crocodic Developer"-->
+        <!--        android:textColor="@color/black"-->
+        <!--        android:textSize="20sp" />-->
+
+        <!--    <LinearLayout-->
+        <!--        android:id="@+id/linearLayout"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="60dp"-->
+        <!--        android:layout_marginTop="132dp"-->
+        <!--        android:fontFamily="@font/poppinsbold"-->
+        <!--        android:gravity="center_vertical"-->
+        <!--        android:orientation="horizontal">-->
+
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/tvLogin"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="40dp"-->
+        <!--            android:layout_margin="10dp"-->
+        <!--            android:fontFamily="@font/poppinsmedium"-->
+        <!--            android:text="Profil"-->
+        <!--            -->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textSize="25sp" />-->
+
+        <!--        <de.hdodenhof.circleimageview.CircleImageView-->
+        <!--            android:layout_width="100dp"-->
+        <!--            android:layout_height="100dp"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:layout_margin="5dp"-->
+        <!--            android:contentDescription="profile_photo"-->
+        <!--            android:src="@drawable/profil" />-->
+
+
+        <!--    </LinearLayout>-->
+
+    </FrameLayout>
+
+</layout>

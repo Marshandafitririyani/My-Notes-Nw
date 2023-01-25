@@ -8,22 +8,24 @@ import com.google.gson.annotations.SerializedName
 
 @Entity
 data class Note(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    @Expose
+    @SerializedName("title")
+    val id : Int = 0,
+    @Expose
+    @SerializedName("title")
+    val title : String?,
+    @Expose
+    @SerializedName("note")
+    val note : String?,
+    @Expose
+    @SerializedName("date")
+    val date : String?,
+    @Expose
+    @SerializedName("content")
+    val content : String?,
     @Expose
     @SerializedName("id_room")
-    val idRoom: Int,
-    @Expose
-    @SerializedName("id")
-    val id: Int,
-    @Expose
-    @SerializedName("name")
-    val name : String,
-    @Expose
-    @SerializedName("email")
-    val email : String,
-    @Expose
-    @SerializedName("photo")
-    val photo : String?
-
+    val idRoom: Int
 
 )

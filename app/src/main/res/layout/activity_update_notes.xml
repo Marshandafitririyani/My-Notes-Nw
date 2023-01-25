@@ -39,13 +39,17 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="60dp">
 
-        <TextView
+        <EditText
+            android:id="@+id/etUpdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:fontFamily="@font/poppinsmedium"
-            android:text="Title"
+            android:background="@color/trasparan"
+            android:fontFamily="@font/poppinsbold"
+            android:gravity="clip_vertical"
+            android:hint="Title"
+            android:padding="8dp"
             android:textSize="30sp" />
 
         <TextView

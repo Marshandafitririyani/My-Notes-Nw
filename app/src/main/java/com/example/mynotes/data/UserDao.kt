@@ -6,15 +6,19 @@ import androidx.room.Query
 import com.crocodic.core.data.CoreDao
 
 @Dao
-interface UserDao : CoreDao<Note> {
-    @Query("DELETE FROM Note")
+interface UserDao : CoreDao<User> {
+    @Query("DELETE FROM User")
     suspend fun deleteAll()
 
-    @Query("SELECT * FROM Note WHERE idRoom = 1")
-    fun getUser() : LiveData<Note>
+    @Query("SELECT * FROM User WHERE idRoom = 1")
+    fun getUser() : LiveData<User>
 
-    @Query("SELECT EXISTS (SELECT 1 FROM Note WHERE idRoom + 1)")
+    @Query("SELECT EXISTS (SELECT 1 FROM User WHERE idRoom + 1)")
     suspend fun isLogin(): Boolean
+
+////tak tambah
+//    @Query("SELECT EXISTS (SELECT 1 FROM User WHERE idRoom + 1)")
+//    suspend fun addNotes(): Boolean
 }
 
 // @Query("DELETE FROM User")
