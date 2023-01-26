@@ -19,6 +19,15 @@ interface ApiService {
          @Field("password") password: String?
      ): String
 
+    @FormUrlEncoded
+    @PATCH("user/profile")
+    suspend fun updateProfile(
+        @Field("name") name: String?,
+        @Field("email") email: String?,
+     @Field("photo") photo: String?
+    ): String
+
+    //membuat note
      @FormUrlEncoded
      @POST("note/")
      suspend fun createNote(
@@ -26,13 +35,9 @@ interface ApiService {
          @Field("content") content: String?
      ): String
 
-     @FormUrlEncoded
-     @PATCH("user/profile")
-     suspend fun updateProfile(
-     @Field("name") name: String?,
-     @Field("email") email: String?
-//     @Field("photo") photo: String?
-     ): String
+     //menampilkan Note
+     @GET("note/")
+     suspend fun note(): String
 
 
      //regiono Token

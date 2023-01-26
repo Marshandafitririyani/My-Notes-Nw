@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <variable
+            name="fragment"
+            type="com.example.mynotes.home.screen.HomeFragment" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,42 +22,47 @@
             android:layout_margin="30dp"
             android:background="@drawable/custome_background_text_view_3"
             android:elevation="20dp"
-            android:layoutDirection="rtl" />
-        <!--        app:searchIcon="@drawable/ic__search"-->
-        <!--        app:queryHint="search notes"-->
-        <!--        app:defaultQueryHint="search notes"-->
-        <!--        app:layout_constraintTop_toTopOf="parent"-->
-        <!--        app:layout_constraintStart_toStartOf="parent"-->
-        <!--        app:layout_constraintEnd_toEndOf="parent" />-->
+            android:layoutDirection="rtl"
+            app:defaultQueryHint="search notes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:queryHint="search notes"
+            app:searchIcon="@drawable/ic__search" />
 
         <ImageView
             android:id="@+id/ivSecrol"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="30dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:elevation="20dp"
-            android:scaleType="fitXY" />
-        <!--        app:layout_constraintEnd_toEndOf="parent"-->
-        <!--        app:layout_constraintStart_toStartOf="parent"-->
-        <!--        app:layout_constraintTop_toTopOf="parent" />-->
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="@id/searchhome"
+            app:layout_constraintStart_toStartOf="@id/searchhome"
+            app:layout_constraintTop_toTopOf="@id/searchhome"
+            app:layout_constraintBottom_toBottomOf="@id/searchhome"/>
 
-        <ScrollView
+        <!--        <ScrollView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="60dp">-->
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp">
+            android:layout_height="0dp"
+            android:layout_margin="30dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="10"
+            tools:listitem="@layout/custome_card"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchhome"/>
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="30dp"
-                tools:listitem="@layout/custome_card" />
-            <!--            app:layout_constraintEnd_toEndOf="parent"-->
-            <!--            app:layout_constraintStart_toStartOf="parent"-->
-            <!--            app:layout_constraintTop_toBottomOf="@id/searchhome"-->
-        </ScrollView>
+        <!--        </ScrollView>-->
 
 
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

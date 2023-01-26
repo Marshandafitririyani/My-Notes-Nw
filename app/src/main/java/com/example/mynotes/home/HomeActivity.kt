@@ -9,6 +9,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.crocodic.core.api.ApiStatus
+import com.crocodic.core.base.adapter.CoreListAdapter
 import com.crocodic.core.extension.isEmptyRequired
 import com.crocodic.core.extension.openActivity
 import com.crocodic.core.extension.textOf
@@ -16,21 +17,28 @@ import com.crocodic.core.extension.tos
 import com.example.mynotes.Base.BaseActivity
 import com.example.mynotes.R
 import com.example.mynotes.add.AddNoteActivity
+import com.example.mynotes.data.Note
 import com.example.mynotes.databinding.ActivityHomeBinding
+import com.example.mynotes.databinding.CustomeCardBinding
 import com.example.mynotes.home.screen.HomeFragment
 import com.example.mynotes.home.screen.ProfilFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.activity_home) {
 //    private lateinit var buttonMasuk : Button
+
 
     private val homeFragment = HomeFragment()
     private val profilFragment = ProfilFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
 
         binding.btnAddHome.setOnClickListener {
             openActivity<AddNoteActivity> {
@@ -87,6 +95,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
         }
     }
 }
+
+
 
 
 

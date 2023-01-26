@@ -23,11 +23,11 @@ class EditViewModel  @Inject constructor(private val apiService: ApiService, pri
         _apiResponse.send(ApiResponse().responseLoading())
         ApiObserver({apiService. updateProfile(name,email)}, false, object : ApiObserver.ResponseListener{
             override suspend fun  onSuccess(response: JSONObject) {
-//                    val data = response.getJSONObject(ApiCode.DATA).toObject<User>(gson)
-//                    userDao.insert(data.copy(idRoom = 1))
+////                    val data = response.getJSONObject(ApiCode.DATA).toObject<User>(gson)
+////                    userDao.insert(data.copy(idRoom = 1))
                 _apiResponse.send(ApiResponse().responseSuccess())
-//                    val message = response.getString(ApiCode.MESSAGE)
-//                    _apiResponse.send(ApiResponse(status = ApiStatus.ERROR, message = message ))
+////                    val message = response.getString(ApiCode.MESSAGE)
+////                    _apiResponse.send(ApiResponse(status = ApiStatus.ERROR, message = message ))
             }
 
         })

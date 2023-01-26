@@ -10,20 +10,20 @@ import com.google.gson.annotations.SerializedName
 data class Note(
     @PrimaryKey(autoGenerate = true)
     @Expose
-    @SerializedName("title")
+    @SerializedName("id")
     val id : Int = 0,
     @Expose
     @SerializedName("title")
     val title : String?,
     @Expose
-    @SerializedName("note")
+    @SerializedName("content")
     val note : String?,
     @Expose
     @SerializedName("date")
     val date : String?,
-    @Expose
-    @SerializedName("content")
-    val content : String?,
+//    @Expose
+//    @SerializedName("content")
+//    val content : String?,
     @Expose
     @SerializedName("id_room")
     val idRoom: Int

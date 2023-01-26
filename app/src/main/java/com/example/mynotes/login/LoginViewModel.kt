@@ -40,7 +40,9 @@ class LoginViewModel @Inject constructor(
                     val data = response.getJSONObject(ApiCode.DATA).toObject<User>(gson)
                     userDao.insert(data.copy(idRoom = 1))
                     _apiResponse.send(ApiResponse().responseSuccess())
-//                    session.setValue(Const.USER.STATUS_USER,"login")
+                    session.setValue(Const.USER.EMAIL, email)
+                    session.setValue(Const.USER.PASSWORD, password)
+                    session.setValue(Const.USER.PROFILE, "Login")
                 }
             })
     }
@@ -62,6 +64,7 @@ class LoginViewModel @Inject constructor(
                     }
                     override suspend fun onError(response: ApiResponse){
                         super.onError(response)
+
                     }
                 }
 

@@ -18,25 +18,25 @@ import dagger.hilt.android.AndroidEntryPoint
 class ProfilActivity : BaseActivity<ActivityProfilBinding,ProfilViewModel>(R.layout.activity_profil) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        binding.ivProfil.setOnClickListener {
-//
-//            openActivity<HomeActivity>(){
-//                finish()
-//            }
-//        }
-//        binding.rectangleProfil.setOnClickListener {
-//            openActivity<EditActivity> {
-//
-//            }
-//        }
-//
-//        binding.rectangleLogout.setOnClickListener {
-//            viewModel.logout {
-//                openActivity<LoginActivity>()
-//                finish()
-//            }
-//
-//        }
+        binding.IvBackProfil.setOnClickListener {
+
+            openActivity<HomeActivity>(){
+                finish()
+            }
+        }
+        binding.rectangleProfil.setOnClickListener {
+            openActivity<EditActivity> {
+
+            }
+        }
+
+        binding.rectangleLogout.setOnClickListener {
+            viewModel.logout {
+                openActivity<LoginActivity>()
+                finish()
+            }
+
+        }
 //        binding.rectangleProfil.setOnClickListener {
 //            if(binding.etNameRegister.isEmptyRequired(R.string.label_must_fill) || binding.etEmailRegister.isEmptyRequired(R.string.label_must_fill) || binding.etPasswordRegister.isEmptyRequired(R.string.label_must_fill) || binding.etConPasRegister.isEmptyRequired(R.string.label_must_fill)){
 //                return@setOnClickListener

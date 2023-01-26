@@ -9,6 +9,7 @@ class Const {
     object USER {
         const val NAME = "name"
         const val EMAIL = "email"
+        const val PASSWORD = "password"
         const val PROFILE = "profile"
         const val PHONE = "phone"
         const val EMPLOYEE_CODE = "employee_code"

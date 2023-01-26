@@ -14,32 +14,34 @@ import com.example.mynotes.R
 import com.example.mynotes.databinding.FragmentProfilBinding
 import com.example.mynotes.edit.EditActivity
 import com.example.mynotes.home.HomeActivity
+import com.example.mynotes.login.LoginActivity
 
 
 class ProfilFragment : Fragment<FragmentProfilBinding>(R.layout.fragment_profil) {
 
-    private lateinit var buttonKembali : ImageView
-    private lateinit var buttonLoguot : ImageView
+    private lateinit var buttonEdit : ImageView
+    private lateinit var buttonLogout : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         Toast.makeText(context, "Profile", Toast.LENGTH_SHORT).show()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        buttonKembali = view.findViewById(R.id.rectangleProfil)
-        buttonLoguot = view.findViewById((R.id.rectangleLogout))
+        buttonEdit = view.findViewById(R.id.rectangleProfil)
+        buttonLogout = view.findViewById((R.id.rectangleLogout))
 
 
-        buttonKembali.setOnClickListener {
+        buttonEdit.setOnClickListener {
             val kembali = Intent(requireContext(), EditActivity::class.java)
             startActivity(kembali)
         }
 
-        buttonLoguot.setOnClickListener {
-            val logout = Intent(requireContext(), EditActivity::class.java)
+        buttonLogout.setOnClickListener {
+            val logout = Intent(requireContext(), LoginActivity::class.java)
             startActivity(logout)
         }
 

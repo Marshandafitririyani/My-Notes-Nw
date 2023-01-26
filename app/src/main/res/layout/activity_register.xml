@@ -100,17 +100,29 @@
             android:text="Password"
             android:textSize="@dimen/_18ssp" />
 
-        <EditText
-            android:id="@+id/etPasswordRegister"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:background="@drawable/custome_background_text_view_3"
-            android:hint="typing password"
-            android:inputType="textPassword"
-            android:padding="8dp" />
+            android:layout_height="wrap_content"
+            android:background="@color/trasparan"
+            app:hintEnabled="false"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/etPasswordRegister"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@drawable/custome_background_text_view_3"
+                android:hint="typing password"
+                android:inputType="textPassword"
+                android:padding="8dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <TextView
             android:layout_width="match_parent"
@@ -122,17 +134,29 @@
             android:text="Confirm Password"
             android:textSize="@dimen/_18ssp" />
 
-        <EditText
-            android:id="@+id/etConPasRegister"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:background="@drawable/custome_background_text_view_3"
-            android:hint="confirm password"
-            android:inputType="textPassword"
-            android:padding="8dp" />
+            android:layout_height="wrap_content"
+            android:background="@color/trasparan"
+            app:hintEnabled="false"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/etConPasRegister"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@drawable/custome_background_text_view_3"
+                android:hint="confirm password"
+                android:inputType="textPassword"
+                android:padding="8dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <Button
             android:id="@+id/btnSaveRegister"

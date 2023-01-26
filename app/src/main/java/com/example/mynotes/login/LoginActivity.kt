@@ -31,6 +31,13 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layout.activity_login) {
+
+//    @Inject
+//
+//        private val session: CoreSession
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -45,6 +52,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
         }
 
         binding.btnLogin.setOnClickListener {
+
+
             if (binding.etEmail.isEmptyRequired(R.string.label_must_fill) || binding.etPassword.isEmptyRequired(
                     R.string.label_must_fill)) {
                 return@setOnClickListener
@@ -63,6 +72,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
                         when (it.status) {
                             ApiStatus.LOADING -> loadingDialog.show("login")
                             ApiStatus.SUCCESS -> {
+
                                 loadingDialog.dismiss()
                                 openActivity<HomeActivity>()
                                 finish()
