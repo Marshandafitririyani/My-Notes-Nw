@@ -30,6 +30,7 @@ class LoginViewModel @Inject constructor(
     private val session: CoreSession
 
 ) : BaseViewModel() {
+    //memberi
     fun login(email: String, password: String) = viewModelScope.launch {
         _apiResponse.send(ApiResponse().responseLoading())
         ApiObserver(
@@ -38,15 +39,19 @@ class LoginViewModel @Inject constructor(
             object : ApiObserver.ResponseListener {
                 override suspend fun onSuccess(response: JSONObject) {
                     val data = response.getJSONObject(ApiCode.DATA).toObject<User>(gson)
+                    val newToken = response.getString("token")
+                    session.setValue(Const.TOKEN.API_TOKEN, newToken)
                     userDao.insert(data.copy(idRoom = 1))
                     _apiResponse.send(ApiResponse().responseSuccess())
                     session.setValue(Const.USER.EMAIL, email)
                     session.setValue(Const.USER.PASSWORD, password)
                     session.setValue(Const.USER.PROFILE, "Login")
+                    println("Token: $newToken")
                 }
             })
     }
 
+    //token
     fun getToken() {
         viewModelScope.launch {
             ApiObserver(
@@ -60,16 +65,13 @@ class LoginViewModel @Inject constructor(
 
                         val token = response.getString("token")
                         session.setValue(Const.TOKEN.API_TOKEN, token)
-
                     }
                     override suspend fun onError(response: ApiResponse){
                         super.onError(response)
 
                     }
                 }
-
             )
-
         }
     }
 }

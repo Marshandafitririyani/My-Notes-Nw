@@ -32,17 +32,12 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layout.activity_login) {
 
-//    @Inject
-//
-//        private val session: CoreSession
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         tokenApi()
 
+        //untuk masuk ke activity register
         binding.btnRegister.setOnClickListener {
             tokenApi()
 
@@ -51,9 +46,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
             }
         }
 
+        //menyimpan login
         binding.btnLogin.setOnClickListener {
-
-
             if (binding.etEmail.isEmptyRequired(R.string.label_must_fill) || binding.etPassword.isEmptyRequired(
                     R.string.label_must_fill)) {
                 return@setOnClickListener
@@ -63,17 +57,15 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
 
             viewModel.login(email, password)
         }
-        //developer@crocodic.com
+
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
                     viewModel.apiResponse.collect {
                         when (it.status) {
-                            ApiStatus.LOADING -> loadingDialog.show("login")
-                            ApiStatus.SUCCESS -> {
-
-                                loadingDialog.dismiss()
+                            ApiStatus.LOADING -> loadingDialog.show(" Please Wait login")
+                            ApiStatus.SUCCESS -> { loadingDialog.dismiss()
                                 openActivity<HomeActivity>()
                                 finish()
                             }
@@ -86,21 +78,19 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
 
     }
 
+//API token dipangil disini
     private fun tokenApi() {
         val dateNow = DateTimeHelper().dateNow()
-//            val dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-DD")
-//            val date: String = current.format(dateFormatter)
         val tokeInit = "$dateNow|rahasia"
         val tokenEncrypt = tokeInit.base64encrypt()
         CoreSession(this).setValue(Const.TOKEN.API_TOKEN, tokenEncrypt)
-
         Timber.d("Cek Token : $tokeInit")
-
         lifecycleScope.launch {
             viewModel.getToken()
         }
     }
 }
+
 
 
 

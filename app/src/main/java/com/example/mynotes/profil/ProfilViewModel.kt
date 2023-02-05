@@ -17,9 +17,12 @@ class ProfilViewModel @Inject constructor(private val apiService: ApiService, pr
 
     private  val _user = kotlinx.coroutines.channels.Channel<List<User>>()
     val user = _user.receiveAsFlow()
+
+    val getUser = userDao.getUser()
+
     fun logout(logout: () -> Unit) = viewModelScope.launch {
-        userDao.deleteAll()
         logout()
+        logoutSuccess()
     }
 }
 

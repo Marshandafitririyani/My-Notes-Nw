@@ -4,10 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-<androidx.constraintlayout.widget.ConstraintLayout
+<!--<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profil.ProfilActivity">
+    tools:context=".profil.ProfilActivity">-->
 
 <!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
 <!--        android:layout_width="match_parent"-->
@@ -23,7 +23,7 @@
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent" />-->
 
-
+<!--
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
         tools:context=".ui.AddFriendActivity">
 
 
-        <LinearLayout
+       &lt;!&ndash; <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -75,6 +75,7 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_margin="5dp"
+            android:scaleType="centerCrop"
             android:contentDescription="profile_photo"
             android:src="@drawable/profil" />
 
@@ -145,7 +146,7 @@
                 android:layout_marginStart="80dp"
                 android:src="@drawable/ic_logout" />
         </LinearLayout>
-
+&ndash;&gt;
 
 
         <FrameLayout
@@ -165,7 +166,6 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginTop="180dp"
-            android:layout_marginEnd="10sp"
             android:background="@color/black"
             app:fabCustomSize="70dp"
             android:src="@drawable/add"
@@ -179,7 +179,7 @@
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_200sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -187,28 +187,122 @@
 
             />
 
-<!--        <com.google.android.material.bottomappbar.BottomAppBar-->
-<!--            android:id="@+id/bottomAppBarProfil"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="bottom"-->
-<!--            app:hideOnScroll="true"-->
-<!--            app:fabCradleMargin="@dimen/_100sdp"-->
-<!--            app:fabCradleRoundedCornerRadius="@dimen/_10sdp">-->
+&lt;!&ndash;        <com.google.android.material.bottomappbar.BottomAppBar&ndash;&gt;
+&lt;!&ndash;            android:id="@+id/bottomAppBarProfil"&ndash;&gt;
+&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;
+&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;
+&lt;!&ndash;            android:layout_gravity="bottom"&ndash;&gt;
+&lt;!&ndash;            app:hideOnScroll="true"&ndash;&gt;
+&lt;!&ndash;            app:fabCradleMargin="@dimen/_100sdp"&ndash;&gt;
+&lt;!&ndash;            app:fabCradleRoundedCornerRadius="@dimen/_10sdp">&ndash;&gt;
 
-<!--            <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--                android:id="@+id/bottomNavigationView"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginEnd="16dp"-->
-<!--                app:menu="@menu/buttom_navmenu" />-->
+&lt;!&ndash;            <com.google.android.material.bottomnavigation.BottomNavigationView&ndash;&gt;
+&lt;!&ndash;                android:id="@+id/bottomNavigationView"&ndash;&gt;
+&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;
+&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;
+&lt;!&ndash;                android:layout_marginEnd="16dp"&ndash;&gt;
+&lt;!&ndash;                app:menu="@menu/buttom_navmenu" />&ndash;&gt;
 
-<!--        </com.google.android.material.bottomappbar.BottomAppBar>-->
+&lt;!&ndash;        </com.google.android.material.bottomappbar.BottomAppBar>&ndash;&gt;
 
 
     </LinearLayout>
 
-<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
-</androidx.constraintlayout.widget.ConstraintLayout>
+&lt;!&ndash;    </androidx.coordinatorlayout.widget.CoordinatorLayout>&ndash;&gt;
+</androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        tools:context=".home.HomeActivity">
+
+        <FrameLayout
+            android:id="@+id/framcontainerProfil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- <androidx.appcompat.widget.SearchView
+             android:id="@+id/searchhome"
+             android:layout_width="match_parent"
+             android:layout_height="50dp"
+             android:layout_margin="30dp"
+             android:background="@drawable/custome_background_text_view_3"
+             android:elevation="20dp"
+             android:layoutDirection="rtl"
+             app:defaultQueryHint="search notes"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:queryHint="search notes"
+             app:searchIcon="@drawable/ic__search" />-->
+
+        <!-- <ImageView
+             android:id="@+id/ivSecrol"
+             android:layout_width="match_parent"
+             android:layout_height="50dp"
+             android:layout_margin="30dp"
+             android:elevation="20dp"
+             android:scaleType="fitXY"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent" />
+
+         <ScrollView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="60dp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent">
+
+             <androidx.recyclerview.widget.RecyclerView
+                 android:id="@+id/rcRecyclerView"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_margin="30dp"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toBottomOf="@id/searchhome"
+                 tools:listitem="@layout/custome_card" />
+
+         </ScrollView>-->
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBarProfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:hideOnScroll="true"
+            app:fabCradleMargin="@dimen/_100sdp"
+            app:fabCradleRoundedCornerRadius="@dimen/_10sdp">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationViewProfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                app:menu="@menu/buttom_navmenu" />
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnAddProfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/add"
+            app:fabCustomSize="70dp"
+            app:layout_anchor="@id/bottomAppBar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.989"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
 </layout>

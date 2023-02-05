@@ -1,50 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
+<!--        <data>
 
-        <variable
-            name="fragment"
-            type="com.example.mynotes.home.screen.HomeFragment" />
+            <variable
+                name="loading"
+                type="Boolean" />
+        </data>-->
 
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".home.screen.HomeFragment">
 
-        <androidx.appcompat.widget.SearchView
+        <EditText
             android:id="@+id/searchhome"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="30dp"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:background="@drawable/custome_background_text_view_3"
             android:elevation="20dp"
-            android:layoutDirection="rtl"
+            android:padding="10dp"
+            tools:text="search"
+            android:clickable="true"
+            android:focusable="true"
+            android:imeOptions="actionSearch"
             app:defaultQueryHint="search notes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:queryHint="search notes"
-            app:searchIcon="@drawable/ic__search" />
+            android:drawableEnd="@drawable/ic__search"
+             />
 
-        <ImageView
-            android:id="@+id/ivSecrol"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+       <!-- <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:elevation="20dp"
             android:scaleType="fitXY"
+            android:src="@drawable/ic__search"
+            android:clickable="true"
+            android:onQueryTextChange="search notes"
+            android:layout_marginStart="300dp"
             app:layout_constraintEnd_toEndOf="@id/searchhome"
             app:layout_constraintStart_toStartOf="@id/searchhome"
             app:layout_constraintTop_toTopOf="@id/searchhome"
-            app:layout_constraintBottom_toBottomOf="@id/searchhome"/>
+            app:layout_constraintBottom_toBottomOf="@id/searchhome"
+             />-->
 
-        <!--        <ScrollView-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="60dp">-->
+<!--                <ScrollView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="60dp">-->
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -61,6 +70,20 @@
         <!--            app:layout_constraintStart_toStartOf="parent"-->
 
         <!--        </ScrollView>-->
+
+        <TextView
+            android:id="@+id/tv_kosong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="File Empty"
+            android:textSize="@dimen/_20ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:visibility="visible"
+
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

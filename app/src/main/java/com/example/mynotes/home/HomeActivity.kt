@@ -28,8 +28,6 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.activity_home) {
-//    private lateinit var buttonMasuk : Button
-
 
     private val homeFragment = HomeFragment()
     private val profilFragment = ProfilFragment()
@@ -37,9 +35,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //untuk melengkungkan
+        binding.bottomNavigationView.setBackground(null)
 
-
-
+        //untuk flotingbottomnya
         binding.btnAddHome.setOnClickListener {
             openActivity<AddNoteActivity> {
 //                finish()
@@ -47,6 +46,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
         }
         replesFragment(homeFragment)
 
+        //untuk frgmentnya
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.homeMenu -> {
@@ -80,18 +80,41 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
         }*/
     }
 
-//        buttonMasuk = findViewById(R.id.btnAddHome)
-//
-//        buttonMasuk.setOnClickListener {
-//            val masuk = Intent(this, AddNoteActivity::class.java)
-//            startActivity(masuk)
-//        }
+/*        buttonMasuk = findViewById(R.id.btnAddHome)
+
+        buttonMasuk.setOnClickListener {
+            val masuk = Intent(this, AddNoteActivity::class.java)
+            startActivity(masuk)
+        }*/
 
 
+    //untuk fragmentnya
     private fun replesFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.framcontainer, fragment)
             commit()
+        }
+    }
+
+    private fun observe() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    viewModel.isRefresh.observe(this@HomeActivity) {
+                        when (it) {
+                            0 -> {
+                                loadingDialog.setResponse("Gagal renew token")
+                            }
+                            1 -> {
+                                viewModel.getNote()
+                            }
+                            else -> {
+                                loadingDialog.setResponse("Else kondisi")
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

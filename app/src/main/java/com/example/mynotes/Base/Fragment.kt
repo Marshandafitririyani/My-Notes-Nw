@@ -24,26 +24,7 @@ open class Fragment<vb : ViewDataBinding>(@LayoutRes private val layoutRes: Int)
     @Inject
     lateinit var session: CoreSession
 
-//    @Inject
-//    lateinit var homeBinding: FragmentHomeBinding
-//
-//    @Inject
-//    lateinit var fragmentNotificationBinding: FragmentHomeBinding
-//
-//    @Inject
-//    lateinit var activityViewModel: HomeViewModel
-
-
 }
-//class NotificationFragment : BaseFragment<FragmentNotificationBinding>(R.layout.fragmen_notification){
-//    private val notificationFragmentViewModel: HomeViewModel by activityViewModels()
-//    private val notificationData: ArrayList<NotificationFragment?>()
-//    private val endlessScrollListener: EndlessScrollListener? = null
-//    private val onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//    }
-//
-//}
 
 
 

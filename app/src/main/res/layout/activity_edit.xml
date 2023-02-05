@@ -82,15 +82,14 @@
                     android:layout_width="130dp"
                     android:layout_height="130dp"
                     android:layout_gravity="center"
-                    android:layout_margin="5dp"
+                    android:layout_margin="10dp"
                     android:background="?selectableItemBackground"
                     android:clickable="true"
                     android:contentDescription="profile_photo"
                     android:focusable="true"
                     android:foreground="?selectableItemBackground"
-                    android:onClick="@{()-> activity.checkPermissionGallery()}"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/profil" />
+                    android:src="@drawable/fotoedit" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -111,36 +110,36 @@
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/custome_background_text_view_3"
                     android:fontFamily="@font/poppinsregular"
-                    android:hint="masukan name"
+                    android:hint="typing..."
                     android:padding="8dp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:text="Email"
-                    android:textSize="20sp" />
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="30dp"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:layout_marginEnd="20dp"-->
+<!--                    android:fontFamily="@font/poppinsmedium"-->
+<!--                    android:text="Email"-->
+<!--                    android:textSize="20sp" />-->
 
-                <EditText
-                    android:id="@+id/etNameEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/custome_background_text_view_3"
-                    android:fontFamily="@font/poppinsregular"
-                    android:hint="masukan email"
-                    android:padding="8dp" />
+<!--                <EditText-->
+<!--                    android:id="@+id/etNameEmail"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="60dp"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    android:layout_marginEnd="20dp"-->
+<!--                    android:background="@drawable/custome_background_text_view_3"-->
+<!--                    android:fontFamily="@font/poppinsregular"-->
+<!--                    android:hint="masukan email"-->
+<!--                    android:padding="8dp" />-->
 
                 <Button
                     android:id="@+id/btnSaveProfil"
-                    android:layout_width="@dimen/_200sdp"
-                    android:layout_height="@dimen/_40sdp"
-                    android:layout_marginStart="@dimen/_58sdp"
-                    android:layout_marginTop="@dimen/_100sdp"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginStart="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_220sdp"
                     android:backgroundTint="@color/teal_200"
                     android:clickable="true"
                     android:focusable="true"

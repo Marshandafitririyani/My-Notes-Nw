@@ -10,3 +10,4 @@ class DeletActivity : AppCompatActivity() {
         setContentView(R.layout.activity_delet)
     }
 }
+//tidak kepakek

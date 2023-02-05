@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="100dp"
         android:fontFamily="@font/poppinsregular"
         android:text="Please login with your email and password "
         android:textColor="@color/white"
@@ -74,7 +74,7 @@
             android:layout_marginEnd="20dp"
             android:background="@drawable/custome_background_text_view_3"
             android:fontFamily="@font/poppinsregular"
-            android:hint="masukan email"
+            android:hint="typing email"
             android:padding="8dp" />
 
 

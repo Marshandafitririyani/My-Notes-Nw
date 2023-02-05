@@ -17,6 +17,7 @@ class SplashActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //supaya tidak login ulang
         val userLogin = session.getString(Const.USER.PROFILE)
 
         tos("Cek Login: $userLogin")
