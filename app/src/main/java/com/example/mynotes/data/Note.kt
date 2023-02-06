@@ -26,6 +26,12 @@ data class Note(
     val date : String?,
     @Expose
     @SerializedName("id_room")
-    val idRoom: Int
+    val idRoom: Int,
+    @Expose
+    @SerializedName("created_at")
+    val created_at: Long,
+    @Expose
+    @SerializedName("updated_at")
+    val updated_at: Long
 
 ) : Parcelable

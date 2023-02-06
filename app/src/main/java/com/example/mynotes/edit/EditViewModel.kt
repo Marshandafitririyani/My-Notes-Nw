@@ -33,11 +33,12 @@ import java.io.File
 import javax.inject.Inject
 
 @HiltViewModel
-class EditViewModel  @Inject constructor(
+class EditViewModel @Inject constructor(
     private val apiService: ApiService,
     private val session: CoreSession,
     private val gson: Gson,
-    private val userDao: UserDao):
+    private val userDao: UserDao
+) :
 
     BaseViewModel() {
 
@@ -45,62 +46,75 @@ class EditViewModel  @Inject constructor(
     var isRefresh = MutableLiveData<Int>()
 
     //untuk update profil untuk nama
-    fun  updateProfile(name: String) = viewModelScope.launch {
+    fun updateProfile(name: String) = viewModelScope.launch {
         println("Nama: $name")
         _apiResponse.send(ApiResponse().responseLoading())
-        ApiObserver({apiService. updateProfile(name)}, false, object : ApiObserver.ResponseListener{
-            override suspend fun  onSuccess(response: JSONObject) {
+        ApiObserver(
+            { apiService.updateProfile(name) },
+            false,
+            object : ApiObserver.ResponseListener {
+                override suspend fun onSuccess(response: JSONObject) {
                     val data = response.getJSONObject(ApiCode.DATA).toObject<User>(gson)
                     userDao.insert(data.copy(idRoom = 1))
-                   _apiResponse.send(ApiResponse().responseSuccess("profile updated"))
+                    _apiResponse.send(ApiResponse().responseSuccess("profile updated"))
 
-            }
-            override suspend fun onError(response: ApiResponse) {
-                super.onError(response)
-                refresfhToken(1)
-                _apiResponse.send(ApiResponse().responseError())
-            }
-        })
+                }
+
+                override suspend fun onError(response: ApiResponse) {
+                    super.onError(response)
+                    refresfhToken(1)
+                    _apiResponse.send(ApiResponse().responseError())
+                }
+            })
     }
-//untuk update profil photo
-    fun  updateProfileWithPhoto(name: String, photo: File) = viewModelScope.launch {
+
+    //untuk update profil photo
+    fun updateProfileWithPhoto(name: String, photo: File) = viewModelScope.launch {
         println("Nama: $name")
         val fileBody = photo.asRequestBody("multipart/form-data".toMediaTypeOrNull())
         val filePart = MultipartBody.Part.createFormData("photo", photo.name, fileBody)
         _apiResponse.send(ApiResponse().responseLoading())
-        ApiObserver({apiService. updateProfileWithPhoto(name,filePart)}, false, object : ApiObserver.ResponseListener{
-            override suspend fun  onSuccess(response: JSONObject) {
-                val data = response.getJSONObject(ApiCode.DATA).toObject<User>(gson)
-                userDao.insert(data.copy(idRoom = 1))
-                _apiResponse.send(ApiResponse().responseSuccess("profile updated"))
+        ApiObserver(
+            { apiService.updateProfileWithPhoto(name, filePart) },
+            false,
+            object : ApiObserver.ResponseListener {
+                override suspend fun onSuccess(response: JSONObject) {
+                    val data = response.getJSONObject(ApiCode.DATA).toObject<User>(gson)
+                    userDao.insert(data.copy(idRoom = 1))
+                    _apiResponse.send(ApiResponse().responseSuccess("profile updated"))
 
-            }
-            override suspend fun onError(response: ApiResponse) {
-                super.onError(response)
-                refresfhToken(2)
-                _apiResponse.send(ApiResponse().responseError())
-            }
-        })
+                }
+
+                override suspend fun onError(response: ApiResponse) {
+                    super.onError(response)
+                    refresfhToken(2)
+                    _apiResponse.send(ApiResponse().responseError())
+                }
+            })
     }
 
 
-    private fun refresfhToken(type: Int){
+    private fun refresfhToken(type: Int) {
         //0 -> gagal
         //1 -> updateProfile
         //2 -> updateProfileWithPhoto
         viewModelScope.launch {
             _apiResponse.send(ApiResponse().responseLoading())
-            ApiObserver({apiService.getRenewToken()}, false, object : ApiObserver.ResponseListener{
-                override suspend fun  onSuccess(response: JSONObject) {
-                    val newToken = response.getString("token")
-                    //session untuk menyimpan token supaya noetnya tidak hilang
-                    session.setValue(Const.TOKEN.API_TOKEN, newToken)
-                    isRefresh.postValue(type)
-                }
-                override suspend fun onError(response: ApiResponse) {
-                    isRefresh.postValue(0)
-                }
-            })
+            ApiObserver(
+                { apiService.getRenewToken() },
+                false,
+                object : ApiObserver.ResponseListener {
+                    override suspend fun onSuccess(response: JSONObject) {
+                        val newToken = response.getString("token")
+                        //session untuk menyimpan token supaya noetnya tidak hilang
+                        session.setValue(Const.TOKEN.API_TOKEN, newToken)
+                        isRefresh.postValue(type)
+                    }
+
+                    override suspend fun onError(response: ApiResponse) {
+                        isRefresh.postValue(0)
+                    }
+                })
         }
 
     }

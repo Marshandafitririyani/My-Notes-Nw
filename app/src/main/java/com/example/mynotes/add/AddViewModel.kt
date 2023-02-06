@@ -34,6 +34,7 @@ class AddViewModel @Inject constructor(
                 override suspend fun onSuccess(response: JSONObject) {
                     _apiResponse.send(ApiResponse().responseSuccess())
                 }
+
                 override suspend fun onError(response: ApiResponse) {
                     super.onError(response)
                     refresfhToken(4)
@@ -52,6 +53,7 @@ class AddViewModel @Inject constructor(
                 override suspend fun onSuccess(response: JSONObject) {
                     _apiResponse.send(ApiResponse().responseSuccess())
                 }
+
                 override suspend fun onError(response: ApiResponse) {
                     super.onError(response)
                     refresfhToken(5)
@@ -64,12 +66,13 @@ class AddViewModel @Inject constructor(
     fun deletNote(id: String) = viewModelScope.launch {
         _apiResponse.send(ApiResponse().responseLoading())
         ApiObserver(
-            {apiService.deletNote(id)},
+            { apiService.deletNote(id) },
             false,
             object : ApiObserver.ResponseListener {
                 override suspend fun onSuccess(response: JSONObject) {
                     _apiResponse.send(ApiResponse().responseSuccess())
                 }
+
                 override suspend fun onError(response: ApiResponse) {
                     super.onError(response)
                     refresfhToken(6)
@@ -105,24 +108,6 @@ class AddViewModel @Inject constructor(
     }
 }
 
-/*
-private fun refresfhToken(type: Int){
-    //0 -> gagal
-    //1 -> updateProfile
-    //2 -> updateProfileWithPhoto
-    viewModelScope.launch {
-        _apiResponse.send(ApiResponse().responseLoading())
-        ApiObserver({apiService.getRenewToken()}, false, object : ApiObserver.ResponseListener{
-            override suspend fun  onSuccess(response: JSONObject) {
-                isRefresh.postValue(type)
-            }
-            override suspend fun onError(response: ApiResponse) {
-                isRefresh.postValue(0)
-            }
-        })
-    }
 
-}
-*/
 
 

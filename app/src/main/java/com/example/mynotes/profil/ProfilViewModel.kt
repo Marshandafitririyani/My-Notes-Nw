@@ -13,9 +13,13 @@ import java.nio.channels.Channel
 import javax.inject.Inject
 
 @HiltViewModel
-class ProfilViewModel @Inject constructor(private val apiService: ApiService, private val gson: Gson, private val userDao: UserDao): BaseViewModel(){
+class ProfilViewModel @Inject constructor(
+    private val apiService: ApiService,
+    private val gson: Gson,
+    private val userDao: UserDao
+) : BaseViewModel() {
 
-    private  val _user = kotlinx.coroutines.channels.Channel<List<User>>()
+    private val _user = kotlinx.coroutines.channels.Channel<List<User>>()
     val user = _user.receiveAsFlow()
 
     val getUser = userDao.getUser()

@@ -62,7 +62,7 @@ class EditActivity : BaseActivity<ActivityEditBinding, EditViewModel>(R.layout.a
 
 
     private var photoFile: File? = null
-    private var username : String? = null
+    private var username: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -117,7 +117,7 @@ class EditActivity : BaseActivity<ActivityEditBinding, EditViewModel>(R.layout.a
                 format(Bitmap.CompressFormat.JPEG)
                 size(514)
             }
-        } catch (e:Exception) {
+        } catch (e: Exception) {
             println("Compress 3")
             tos("Gagal kompress anda bisa mengganti foto lain")
             e.printStackTrace()
@@ -343,6 +343,7 @@ class EditActivity : BaseActivity<ActivityEditBinding, EditViewModel>(R.layout.a
             storageDir /* directory */
         )
     }
+
     private fun getNewFileName(isPdf: Boolean = false): String {
         val timeStamp = DateTimeHelper().createAtLong().toString()
         return if (isPdf) "PDF_${timeStamp}_.pdf" else "JPEG_${timeStamp}_.jpg"
@@ -357,8 +358,6 @@ class EditActivity : BaseActivity<ActivityEditBinding, EditViewModel>(R.layout.a
         }
         return file
     }
-
-
 
 
 }

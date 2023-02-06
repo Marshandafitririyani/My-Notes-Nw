@@ -6,140 +6,139 @@
     </data>
 
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".login.LoginActivity">
-
-
-    <ImageView
-        android:id="@+id/iv_bag"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="210dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/custome_background_text_view_1" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="55dp"
-        android:fontFamily="@font/poppinsmedium"
-        android:text="My Note"
-        android:textColor="@color/white"
-        android:textSize="35sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="100dp"
-        android:fontFamily="@font/poppinsregular"
-        android:text="Please login with your email and password "
-        android:textColor="@color/white"
-        android:textSize="15sp" />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:context=".login.LoginActivity">
 
+
+        <ImageView
+            android:id="@+id/iv_bag"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/custome_background_text_view_1" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="65dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="55dp"
             android:fontFamily="@font/poppinsmedium"
-            android:text="Email"
-            android:textSize="20sp" />
+            android:text="My Note"
+            android:textColor="@color/white"
+            android:textSize="35sp" />
 
-
-        <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/custome_background_text_view_3"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="100dp"
             android:fontFamily="@font/poppinsregular"
-            android:hint="typing email"
-            android:padding="8dp" />
+            android:text="Please login with your email and password "
+            android:textColor="@color/white"
+            android:textSize="15sp" />
 
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:fontFamily="@font/poppinsmedium"
-            android:text="Password"
-            android:textSize="20sp" />
+            android:layout_marginTop="200dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/trasparan"
-            app:hintEnabled="false"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:passwordToggleEnabled="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="65dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:text="Email"
+                android:textSize="20sp" />
+
 
             <EditText
-                android:id="@+id/etPassword"
+                android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
                 android:background="@drawable/custome_background_text_view_3"
                 android:fontFamily="@font/poppinsregular"
-                android:hint="typing password"
-                android:inputType="textPassword"
-                android:padding="8dp"
-                android:singleLine="true" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+                android:hint="typing email"
+                android:padding="8dp" />
 
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:text="Password"
+                android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="@dimen/_45sdp"
-            android:layout_marginStart="@dimen/_60sdp"
-            android:layout_marginTop="@dimen/_50sdp"
-            android:backgroundTint="@color/teal_200"
-            android:fontFamily="@font/poppinsmedium"
-            android:text="login"
-            android:textSize="@dimen/_20ssp" />
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/trasparan"
+                app:hintEnabled="false"
+                app:passwordToggleEnabled="true">
 
-        <Button
-            android:id="@+id/btnRegister"
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="@dimen/_45sdp"
-            android:layout_marginStart="@dimen/_60sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:backgroundTint="@color/trasparan"
-            android:fontFamily="@font/poppinsmedium"
-            android:text="Register"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_20ssp"
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/custome_background_text_view_3"
+                    android:fontFamily="@font/poppinsregular"
+                    android:hint="typing password"
+                    android:inputType="textPassword"
+                    android:padding="8dp"
+                    android:singleLine="true" />
 
-            />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    </LinearLayout>
-</RelativeLayout>
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginStart="@dimen/_60sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:backgroundTint="@color/teal_200"
+                android:fontFamily="@font/poppinsmedium"
+                android:text="login"
+                android:textSize="@dimen/_20ssp" />
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginStart="@dimen/_60sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:backgroundTint="@color/trasparan"
+                android:fontFamily="@font/poppinsmedium"
+                android:text="Register"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_20ssp"
+
+                />
+
+        </LinearLayout>
+    </RelativeLayout>
 
 </layout>

@@ -21,40 +21,42 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel>(R.layout.activity_register) {
+class RegisterActivity :
+    BaseActivity<ActivityRegisterBinding, RegisterViewModel>(R.layout.activity_register) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         //kembali ke logogin
         binding.ivBack.setOnClickListener {
             tos("You are not register?")
-            openActivity<LoginActivity>(){
+            openActivity<LoginActivity>() {
                 finish()
             }
         }
         binding.btnSaveRegister.setOnClickListener {
-             if(binding.etNameRegister.isEmptyRequired(R.string.label_must_fill) ||
+            if (binding.etNameRegister.isEmptyRequired(R.string.label_must_fill) ||
                 binding.etEmailRegister.isEmptyRequired(R.string.label_must_fill) ||
                 binding.etPasswordRegister.isEmptyRequired(R.string.label_must_fill) ||
-                binding.etConPasRegister.isEmptyRequired(R.string.label_must_fill)){
+                binding.etConPasRegister.isEmptyRequired(R.string.label_must_fill)
+            ) {
                 return@setOnClickListener
             }
             val name = binding.etNameRegister.textOf()
             val email = binding.etEmailRegister.textOf()
             val password = binding.etPasswordRegister.textOf()
 
-            viewModel.register(name,email,password,)
+            viewModel.register(name, email, password)
         }
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
-                    viewModel.apiResponse.collect{
+                    viewModel.apiResponse.collect {
                         when (it.status) {
                             ApiStatus.LOADING -> loadingDialog.show("Please Wait Register")
-                            ApiStatus.SUCCESS -> { tos("Please Login")
-                                loadingDialog.show("Succes")
+                            ApiStatus.SUCCESS -> { loadingDialog.show("Succes")
                                 openActivity<LoginActivity>()
+                                tos("Please Login")
                                 finish()
                             }
                             else -> loadingDialog.setResponse(it.message ?: return@collect)

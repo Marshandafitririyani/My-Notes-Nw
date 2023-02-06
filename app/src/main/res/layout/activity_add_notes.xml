@@ -2,133 +2,122 @@
 <layout>
 
     <data>
+
         <variable
             name="nameNote"
             type="com.example.mynotes.data.Note" />
     </data>
 
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.mynotes.Ad.AddNoteActivity">
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:fontFamily="@font/poppinsbold"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-        <ImageView
-            android:id="@+id/iv_kembali"
-            android:layout_width="@dimen/_35sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginEnd="15dp"
-            android:background="?selectableItemBackground"
-            android:foreground="?selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:src="@drawable/back" />
-
-        <ImageView
-            android:id="@+id/btnDelet"
-            android:layout_width="@dimen/_35sdp"
-            android:layout_height="@dimen/_33sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:background="?selectableItemBackground"
-            android:foreground="?selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_marginStart="@dimen/_170sdp"
-            android:src="@drawable/ic_delete"/>
-
-        <ImageView
-            android:id="@+id/btnSaveAdd"
-            android:layout_width="@dimen/_35sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:src="@drawable/ic_chek"
-            android:background="?selectableItemBackground"
-            android:foreground="?selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_marginStart="5dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="60dp">
+        tools:context="com.example.mynotes.Ad.AddNoteActivity">
 
-        <EditText
-            android:id="@+id/etAddTitle"
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@color/trasparan"
+            android:layout_height="60dp"
             android:fontFamily="@font/poppinsbold"
-            android:gravity="clip_vertical"
-            android:hint="Title"
-            android:text='@{nameNote.title}'
-            android:padding="8dp"
-            android:textSize="30sp" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/etAddCon"
+
+            <ImageView
+                android:id="@+id/iv_kembali"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="15dp"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?selectableItemBackground"
+                android:src="@drawable/back" />
+
+            <ImageView
+                android:id="@+id/btnDelet"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_33sdp"
+                android:layout_marginStart="@dimen/_170sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?selectableItemBackground"
+                android:src="@drawable/ic_delete" />
+
+            <ImageView
+                android:id="@+id/btnSaveAdd"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?selectableItemBackground"
+                android:src="@drawable/ic_chek" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_400sdp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@color/trasparan"
-            android:fontFamily="@font/poppinsregular"
-            android:gravity="clip_vertical"
-            android:hint="Content"
-            android:text='@{nameNote.note}'
-            android:padding="8dp" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="70dp"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="60dp">
 
-       <!-- <Button
-            android:id="@+id/btnSaveAdd"
-            android:layout_width="@dimen/_80sdp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:text="SAVE"
-            android:backgroundTint="@color/teal_700"
-            android:fontFamily="@font/poppinsmedium"
-            />-->
+            <EditText
+                android:id="@+id/etAddTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/trasparan"
+                android:fontFamily="@font/poppinsbold"
+                android:gravity="clip_vertical"
+                android:hint="Title"
+                android:padding="8dp"
+                android:text='@{nameNote.title}'
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/etAddCon"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_420sdp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/trasparan"
+                android:fontFamily="@font/poppinsregular"
+                android:gravity="clip_vertical"
+                android:hint="Content"
+                android:padding="8dp"
+                android:text='@{nameNote.note}' />
+
+            <TextView
+                android:id="@+id/date_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/poppinsregular"
+                android:gravity="center"
+                android:text="edit.7.1.2020"
+                android:textSize="15sp" />
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:fontFamily="@font/poppinsregular"
-            android:gravity="center"
-            android:text="edit.7.1.2020"
-            android:textSize="20sp" />
-
-
-    </LinearLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

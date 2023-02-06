@@ -23,17 +23,20 @@ class RegisterViewModel
     private val apiService: ApiService,
     private val gson: Gson,
     private val userDao: UserDao
-    ):
+) :
 
-    BaseViewModel(){
+    BaseViewModel() {
     fun register(name: String, email: String, password: String) = viewModelScope.launch {
         _apiResponse.send(ApiResponse().responseLoading())
-        ApiObserver({apiService.register(name,email ,password)}, false, object : ApiObserver.ResponseListener{
-            override suspend fun  onSuccess(response: JSONObject) {
+        ApiObserver(
+            { apiService.register(name, email, password) },
+            false,
+            object : ApiObserver.ResponseListener {
+                override suspend fun onSuccess(response: JSONObject) {
                     _apiResponse.send(ApiResponse().responseSuccess())
                 }
 
-        })
+            })
     }
 }
 

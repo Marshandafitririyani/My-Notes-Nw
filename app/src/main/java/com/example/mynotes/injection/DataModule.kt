@@ -36,7 +36,8 @@ class DataModule {
     fun provideUserDao(appDatabase: AppDatabase) = appDatabase.userDao()
 
     @Provides
-    fun provideGson() = GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
+    fun provideGson() =
+        GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
 
     @Provides
     fun provideOkHttpClient(session: CoreSession): OkHttpClient {
@@ -46,7 +47,7 @@ class DataModule {
         sslContext.init(null, arrayOf(unsafeTrustManager), null)
 
         val okHttpClient = OkHttpClient().newBuilder()
-            .sslSocketFactory(sslContext.socketFactory,  unsafeTrustManager)
+            .sslSocketFactory(sslContext.socketFactory, unsafeTrustManager)
             .connectTimeout(90, TimeUnit.SECONDS)
             .readTimeout(90, TimeUnit.SECONDS)
             .writeTimeout(90, TimeUnit.SECONDS)

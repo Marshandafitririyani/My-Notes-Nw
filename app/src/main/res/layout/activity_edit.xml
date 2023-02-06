@@ -113,27 +113,6 @@
                     android:hint="typing..."
                     android:padding="8dp" />
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="30dp"-->
-<!--                    android:layout_marginTop="20dp"-->
-<!--                    android:layout_marginEnd="20dp"-->
-<!--                    android:fontFamily="@font/poppinsmedium"-->
-<!--                    android:text="Email"-->
-<!--                    android:textSize="20sp" />-->
-
-<!--                <EditText-->
-<!--                    android:id="@+id/etNameEmail"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="60dp"-->
-<!--                    android:layout_marginStart="20dp"-->
-<!--                    android:layout_marginEnd="20dp"-->
-<!--                    android:background="@drawable/custome_background_text_view_3"-->
-<!--                    android:fontFamily="@font/poppinsregular"-->
-<!--                    android:hint="masukan email"-->
-<!--                    android:padding="8dp" />-->
-
                 <Button
                     android:id="@+id/btnSaveProfil"
                     android:layout_width="@dimen/_250sdp"

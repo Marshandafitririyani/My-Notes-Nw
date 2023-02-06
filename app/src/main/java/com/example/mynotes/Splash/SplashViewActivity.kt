@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SplashViewActivity @Inject constructor(): BaseViewModel() {
+class SplashViewActivity @Inject constructor() : BaseViewModel() {
     fun splash(done: () -> Unit) = viewModelScope.launch {
         delay(3000)
         done()

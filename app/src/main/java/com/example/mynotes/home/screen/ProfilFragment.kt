@@ -54,9 +54,9 @@ class ProfilFragment : Fragment<FragmentProfilBinding>(R.layout.fragment_profil)
 
         buttonLogout.setOnClickListener {
             viewmodel.logout { activity?.tos("Logout") }
-           /* activity?.finishAffinity()
-            val logout = Intent(requireContext(), LoginActivity::class.java)
-            startActivity(logout)*/
+            /* activity?.finishAffinity()
+             val logout = Intent(requireContext(), LoginActivity::class.java)
+             startActivity(logout)*/
         }
 
 /*

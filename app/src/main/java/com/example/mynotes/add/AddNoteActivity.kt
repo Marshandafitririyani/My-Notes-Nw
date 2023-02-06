@@ -21,6 +21,7 @@ import com.example.mynotes.databinding.ActivityLoginBinding
 import com.example.mynotes.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 
 @AndroidEntryPoint
 class AddNoteActivity :
@@ -40,6 +41,13 @@ class AddNoteActivity :
         oldTitle = note?.note
 
         binding.nameNote = note
+
+        //untuk date
+        title = "KotlinApp"
+        val text: TextView = findViewById(R.id.date_note)
+        val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+        val dateString = simpleDateFormat.format(note?.updated_at ?: 9897546853323L)
+        text.text = String.format("Date: %s", dateString)
 
         initClick()
         observe()
@@ -132,7 +140,6 @@ class AddNoteActivity :
     }
 
 
-
     private fun observe() {
         //refresh token
         lifecycleScope.launch {
@@ -183,4 +190,4 @@ class AddNoteActivity :
         }
     }
 
-    }
+}

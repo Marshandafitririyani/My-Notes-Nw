@@ -2,12 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!--        <data>
-
-            <variable
-                name="loading"
-                type="Boolean" />
-        </data>-->
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -21,67 +15,44 @@
             android:layout_margin="30dp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:background="@drawable/custome_background_text_view_3"
-            android:elevation="20dp"
-            android:padding="10dp"
-            tools:text="search"
             android:clickable="true"
+            android:drawableEnd="@drawable/ic__search"
+            android:elevation="20dp"
             android:focusable="true"
             android:imeOptions="actionSearch"
+            android:padding="10dp"
             app:defaultQueryHint="search notes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:queryHint="search notes"
-            android:drawableEnd="@drawable/ic__search"
-             />
-
-       <!-- <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="20dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic__search"
-            android:clickable="true"
-            android:onQueryTextChange="search notes"
-            android:layout_marginStart="300dp"
-            app:layout_constraintEnd_toEndOf="@id/searchhome"
-            app:layout_constraintStart_toStartOf="@id/searchhome"
-            app:layout_constraintTop_toTopOf="@id/searchhome"
-            app:layout_constraintBottom_toBottomOf="@id/searchhome"
-             />-->
-
-<!--                <ScrollView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="60dp">-->
-
+            tools:text="search" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="30dp"
+            app:reverseLayout="true"
+            app:stackFromEnd="true"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:itemCount="10"
-            tools:listitem="@layout/custome_card"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/searchhome"/>
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
+            app:layout_constraintTop_toBottomOf="@id/searchhome"
+            tools:itemCount="0"
+            tools:listitem="@layout/custome_card" />
 
-        <!--        </ScrollView>-->
 
         <TextView
             android:id="@+id/tv_kosong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="File Empty"
             android:textSize="@dimen/_20ssp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:gravity="center"
             android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
 
             />
 

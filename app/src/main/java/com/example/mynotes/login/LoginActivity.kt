@@ -41,7 +41,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
         binding.btnRegister.setOnClickListener {
             tokenApi()
 
-            openActivity<RegisterActivity>(){
+            openActivity<RegisterActivity>() {
                 finish()
             }
         }
@@ -49,7 +49,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
         //menyimpan login
         binding.btnLogin.setOnClickListener {
             if (binding.etEmail.isEmptyRequired(R.string.label_must_fill) || binding.etPassword.isEmptyRequired(
-                    R.string.label_must_fill)) {
+                    R.string.label_must_fill
+                )
+            ) {
                 return@setOnClickListener
             }
             val email = binding.etEmail.textOf()
@@ -65,7 +67,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
                     viewModel.apiResponse.collect {
                         when (it.status) {
                             ApiStatus.LOADING -> loadingDialog.show(" Please Wait login")
-                            ApiStatus.SUCCESS -> { loadingDialog.dismiss()
+                            ApiStatus.SUCCESS -> {
+                                loadingDialog.dismiss()
                                 openActivity<HomeActivity>()
                                 finish()
                             }
@@ -78,7 +81,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
 
     }
 
-//API token dipangil disini
+    //API token dipangil disini
     private fun tokenApi() {
         val dateNow = DateTimeHelper().dateNow()
         val tokeInit = "$dateNow|rahasia"

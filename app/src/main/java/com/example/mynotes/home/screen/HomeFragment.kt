@@ -49,7 +49,7 @@ class HomeFragment : Fragment<FragmentHomeBinding>(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
 
         //fungsi untuk filter search
-        binding?.searchhome?.doOnTextChanged {text, start,before,count->
+        binding?.searchhome?.doOnTextChanged { text, start, before, count ->
             if (note.isEmpty()) {
                 activity?.tos("kosong")
             }
@@ -84,7 +84,7 @@ class HomeFragment : Fragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 .initItem(note) { position, data ->
                     activity?.openActivity<AddNoteActivity> {
                         //putExtra untuk memunculkan isi note yang sudah dibuat saat diklik
-                        putExtra(Const.NOTE.NOTE,data)
+                        putExtra(Const.NOTE.NOTE, data)
                     }
                 }
 
@@ -113,9 +113,9 @@ class HomeFragment : Fragment<FragmentHomeBinding>(R.layout.fragment_home) {
             binding?.rcRecyclerView?.adapter?.notifyDataSetChanged()
 
 //untuk memberitahu apakah halamn homen itu kosonng
-            if (note.isEmpty()){
+            if (note.isEmpty()) {
                 binding?.tvKosong?.visibility = View.VISIBLE
-            } else{
+            } else {
                 binding?.tvKosong?.visibility = View.GONE
             }
             Timber.d("cek data note $it")
