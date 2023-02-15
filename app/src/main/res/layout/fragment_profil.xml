@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -8,8 +8,7 @@
             type="com.example.mynotes.data.User" />
     </data>
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <FrameLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,7 +27,7 @@
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
                 android:fontFamily="@font/poppinsmedium"
-                android:text="Profil"
+                android:text="@string/profil"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
 
@@ -37,7 +36,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:contentDescription="profile_photo"
+                android:contentDescription="@string/profile_photo2"
                 android:src="@drawable/picture" />
 
             <TextView
@@ -73,7 +72,7 @@
                     android:layout_marginStart="35dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/poppinsmedium"
-                    android:text="Edit Profil"
+                    android:text="@string/edit_profil2"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -99,7 +98,7 @@
                     android:layout_marginStart="35dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/poppinsmedium"
-                    android:text="Logout"
+                    android:text="@string/logout"
                     android:textColor="@color/red"
                     android:textSize="20sp" />
 
@@ -110,7 +109,8 @@
                     android:layout_marginStart="80dp"
                     android:background="?selectableItemBackground"
                     android:foreground="?selectableItemBackground"
-                    android:src="@drawable/ic_logout" />
+                    android:src="@drawable/ic_logout"
+                    android:contentDescription="@string/todo8" />
             </LinearLayout>
         </LinearLayout>
     </FrameLayout>

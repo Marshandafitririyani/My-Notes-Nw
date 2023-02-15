@@ -27,7 +27,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:queryHint="search notes"
-            tools:text="search" />
+            tools:text="search"
+            android:inputType="text"
+            android:autofillHints="" />
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -50,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="File Empty"
+            android:text="@string/file_empty"
             android:textSize="@dimen/_20ssp"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"

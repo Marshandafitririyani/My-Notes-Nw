@@ -62,7 +62,8 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?selectableItemBackground"
-                        android:src="@drawable/back" />
+                        android:src="@drawable/back"
+                        android:contentDescription="@string/todo4" />
 
                     <TextView
                         android:id="@+id/tvLogin"
@@ -70,7 +71,7 @@
                         android:layout_height="40dp"
                         android:layout_margin="70dp"
                         android:fontFamily="@font/poppinsmedium"
-                        android:text="Edit Profil"
+                        android:text="@string/edit_profil"
                         android:textSize="30sp" />
 
 
@@ -85,7 +86,7 @@
                     android:layout_margin="10dp"
                     android:background="?selectableItemBackground"
                     android:clickable="true"
-                    android:contentDescription="profile_photo"
+                    android:contentDescription="@string/profile_photo"
                     android:focusable="true"
                     android:foreground="?selectableItemBackground"
                     android:scaleType="centerCrop"
@@ -98,7 +99,7 @@
                     android:layout_marginTop="65dp"
                     android:layout_marginEnd="20dp"
                     android:fontFamily="@font/poppinsmedium"
-                    android:text="Name"
+                    android:text="@string/name"
                     android:textSize="20sp" />
 
 
@@ -110,8 +111,10 @@
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/custome_background_text_view_3"
                     android:fontFamily="@font/poppinsregular"
-                    android:hint="typing..."
-                    android:padding="8dp" />
+                    android:hint="@string/typing"
+                    android:padding="8dp"
+                    android:autofillHints="name"
+                    android:inputType="text" />
 
                 <Button
                     android:id="@+id/btnSaveProfil"
@@ -123,8 +126,8 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:fontFamily="@font/poppinsmedium"
-                    android:text="Save"
-                    android:textSize="20dp" />
+                    android:text="@string/save"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 

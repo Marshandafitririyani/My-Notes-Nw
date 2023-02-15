@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -9,8 +9,7 @@
     </data>
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -40,7 +39,8 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackground"
-                android:src="@drawable/back" />
+                android:src="@drawable/back"
+                android:contentDescription="@string/todo" />
 
             <ImageView
                 android:id="@+id/btnDelet"
@@ -52,7 +52,8 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackground"
-                android:src="@drawable/ic_delete" />
+                android:src="@drawable/ic_delete"
+                android:contentDescription="@string/todo2" />
 
             <ImageView
                 android:id="@+id/btnSaveAdd"
@@ -64,7 +65,8 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackground"
-                android:src="@drawable/ic_chek" />
+                android:src="@drawable/ic_chek"
+                android:contentDescription="@string/todo3" />
 
         </LinearLayout>
 
@@ -86,10 +88,11 @@
                 android:background="@color/trasparan"
                 android:fontFamily="@font/poppinsbold"
                 android:gravity="clip_vertical"
-                android:hint="Title"
+                android:hint="@string/title"
                 android:padding="8dp"
                 android:text='@{nameNote.title}'
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:importantForAutofill="" />
 
             <EditText
                 android:id="@+id/etAddCon"
@@ -100,9 +103,10 @@
                 android:background="@color/trasparan"
                 android:fontFamily="@font/poppinsregular"
                 android:gravity="clip_vertical"
-                android:hint="Content"
+                android:hint="@string/content"
                 android:padding="8dp"
-                android:text='@{nameNote.note}' />
+                android:text='@{nameNote.note}'
+                android:autofillHints="" />
 
             <TextView
                 android:id="@+id/date_note"
@@ -113,7 +117,7 @@
                 android:layout_gravity="bottom"
                 android:fontFamily="@font/poppinsregular"
                 android:gravity="center"
-                android:text="edit.7.1.2020"
+                android:text="@string/edit_7_1_2020"
                 android:textSize="15sp" />
 
 

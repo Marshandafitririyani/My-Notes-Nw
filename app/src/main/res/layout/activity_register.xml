@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -20,7 +19,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UseCompoundDrawables">
 
 
             <ImageView
@@ -30,6 +30,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginEnd="15dp"
                 android:background="?selectableItemBackground"
+                android:contentDescription="@string/todo7"
                 android:foreground="?selectableItemBackground"
                 android:src="@drawable/back" />
 
@@ -38,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_margin="@dimen/_60sdp"
-                android:text="Register"
+                android:text="@string/register2"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -58,7 +59,7 @@
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:fontFamily="@font/poppinsmedium"
-                android:text="Name"
+                android:text="@string/name2"
                 android:textSize="@dimen/_18ssp" />
 
 
@@ -68,8 +69,10 @@
                 android:layout_height="60dp"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
+                android:autofillHints="name"
                 android:background="@drawable/custome_background_text_view_3"
-                android:hint="add name"
+                android:hint="@string/add_name"
+                android:inputType="textPersonName"
                 android:padding="15dp" />
 
             <TextView
@@ -79,7 +82,7 @@
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:fontFamily="@font/poppinsmedium"
-                android:text="Email"
+                android:text="@string/email2"
                 android:textSize="@dimen/_18ssp" />
 
             <EditText
@@ -88,8 +91,10 @@
                 android:layout_height="60dp"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
+                android:autofillHints="emailAddress"
                 android:background="@drawable/custome_background_text_view_3"
-                android:hint="add email"
+                android:hint="@string/add_email"
+                android:inputType="textEmailAddress"
                 android:padding="15dp" />
 
             <TextView
@@ -99,7 +104,7 @@
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:fontFamily="@font/poppinsmedium"
-                android:text="Password"
+                android:text="@string/password2"
                 android:textSize="@dimen/_18ssp" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -117,8 +122,9 @@
                     android:layout_marginStart="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_20sdp"
                     android:layout_marginBottom="@dimen/_20sdp"
+                    android:autofillHints="password"
                     android:background="@drawable/custome_background_text_view_3"
-                    android:hint="add password"
+                    android:hint="@string/add_password"
                     android:inputType="textPassword"
                     android:padding="15dp" />
 
@@ -132,7 +138,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:fontFamily="@font/poppinsmedium"
-                android:text="Confirm Password"
+                android:text="@string/confirm_password"
                 android:textSize="@dimen/_18ssp" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -150,8 +156,9 @@
                     android:layout_marginStart="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_20sdp"
                     android:layout_marginBottom="@dimen/_20sdp"
+                    android:autofillHints="password"
                     android:background="@drawable/custome_background_text_view_3"
-                    android:hint="add confirm password"
+                    android:hint="@string/add_confirm_password"
                     android:inputType="textPassword"
                     android:padding="15dp" />
 
@@ -166,7 +173,7 @@
                 android:layout_marginTop="@dimen/_60sdp"
                 android:backgroundTint="@color/teal_200"
                 android:fontFamily="@font/poppinsmedium"
-                android:text="Save"
+                android:text="@string/save2"
                 android:textAllCaps="false"
                 android:textSize="@dimen/_15ssp" />
 
