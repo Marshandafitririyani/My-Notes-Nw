@@ -1,22 +1,16 @@
 package com.example.mynotes.home
 
-import android.icu.text.CaseMap.Title
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.crocodic.core.api.ApiCode
 import com.crocodic.core.api.ApiObserver
 import com.crocodic.core.api.ApiResponse
-import com.crocodic.core.api.ApiStatus
 import com.crocodic.core.data.CoreSession
 import com.crocodic.core.extension.toList
-import com.crocodic.core.extension.toObject
 import com.example.mynotes.Base.BaseViewModel
 import com.example.mynotes.api.ApiService
 import com.example.mynotes.const.Const
 import com.example.mynotes.data.Note
-//import com.example.mynotes.data.Note
-import com.example.mynotes.data.User
 import com.example.mynotes.data.UserDao
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -29,16 +23,16 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val apiService: ApiService,
     private val gson: Gson,
-    private val userDao: UserDao,
     private val session: CoreSession
 ) : BaseViewModel() {
 
-    //untuk note
     val dataNote = MutableLiveData<List<Note>>()
     var isRefresh = MutableLiveData<Int>()
 
     fun getNote() = viewModelScope.launch {
-        ApiObserver({ apiService.note() }, false, object : ApiObserver.ResponseListener {
+        ApiObserver({
+            apiService.note()
+        }, false, object : ApiObserver.ResponseListener {
             override suspend fun onSuccess(response: JSONObject) {
                 val data =
                     response.getJSONArray(ApiCode.DATA).toList<Note>(gson)
@@ -47,17 +41,12 @@ class HomeViewModel @Inject constructor(
             }
 
             override suspend fun onError(response: ApiResponse) {
-//                super.onError(response)
                 refresfhToken(1)
             }
-
-
         })
-
-
     }
 
-    //refresh
+
     private fun refresfhToken(type: Int) {
         println("refresh token 1")
         viewModelScope.launch {
@@ -82,11 +71,3 @@ class HomeViewModel @Inject constructor(
 
     }
 }
-// Log.d("TestNote", "Test 1")
-//        Log.d("TestNote", "Test 2")
-// Log.d("TestNote", "Test 3")
-//Log.d("TestNote", "Test 4")
-// Log.d("TestNote", "Test 5")
-// Log.d("TestNote", "Test 6")
-// Log.d("TestNote", "Test 7")
-// Log.d("TestNote", "Test 8")

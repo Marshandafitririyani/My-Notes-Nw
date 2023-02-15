@@ -1,9 +1,6 @@
 package com.example.mynotes.register
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -16,7 +13,6 @@ import com.example.mynotes.Base.BaseActivity
 import com.example.mynotes.login.LoginActivity
 import com.example.mynotes.R
 import com.example.mynotes.databinding.ActivityRegisterBinding
-import com.example.mynotes.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -26,11 +22,9 @@ class RegisterActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //kembali ke logogin
         binding.ivBack.setOnClickListener {
             tos("You are not register?")
             openActivity<LoginActivity>() {
-                finish()
             }
         }
         binding.btnSaveRegister.setOnClickListener {
@@ -54,7 +48,8 @@ class RegisterActivity :
                     viewModel.apiResponse.collect {
                         when (it.status) {
                             ApiStatus.LOADING -> loadingDialog.show("Please Wait Register")
-                            ApiStatus.SUCCESS -> { loadingDialog.show("Succes")
+                            ApiStatus.SUCCESS -> {
+                                loadingDialog.show("Succes")
                                 openActivity<LoginActivity>()
                                 tos("Please Login")
                                 finish()

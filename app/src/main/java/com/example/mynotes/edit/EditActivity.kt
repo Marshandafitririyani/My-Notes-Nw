@@ -1,27 +1,22 @@
 package com.example.mynotes.edit
 
-import android.Manifest
+
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.ImageDecoder
 import android.graphics.Matrix
 import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -29,18 +24,8 @@ import com.crocodic.core.api.ApiStatus
 import com.crocodic.core.extension.*
 import com.crocodic.core.helper.DateTimeHelper
 import com.example.mynotes.Base.BaseActivity
-import com.example.mynotes.Base.BaseViewModel
 import com.example.mynotes.R
-import com.example.mynotes.api.ApiService
-import com.example.mynotes.data.AppDatabase
-import com.example.mynotes.data.User
 import com.example.mynotes.databinding.ActivityEditBinding
-import com.example.mynotes.databinding.ActivityHomeBinding
-import com.example.mynotes.home.HomeActivity
-import com.example.mynotes.home.HomeViewModel
-import com.example.mynotes.home.screen.ProfilFragment
-import com.example.mynotes.profil.ProfilActivity
-import com.example.mynotes.profil.ProfilActivity_GeneratedInjector
 import dagger.hilt.android.AndroidEntryPoint
 import id.zelory.compressor.Compressor
 import id.zelory.compressor.constraint.format
@@ -48,14 +33,11 @@ import id.zelory.compressor.constraint.quality
 import id.zelory.compressor.constraint.resolution
 import id.zelory.compressor.constraint.size
 import kotlinx.coroutines.launch
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.MultipartBody
-import timber.log.Timber
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.InputStream
-import java.util.concurrent.Executors
+
 
 @AndroidEntryPoint
 class EditActivity : BaseActivity<ActivityEditBinding, EditViewModel>(R.layout.activity_edit) {
@@ -67,7 +49,6 @@ class EditActivity : BaseActivity<ActivityEditBinding, EditViewModel>(R.layout.a
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //untuk getExstra menyimpan username
         username = intent.getStringExtra("username")
         binding.activity = this
         binding.etNameProfil.setText(username)
@@ -77,8 +58,6 @@ class EditActivity : BaseActivity<ActivityEditBinding, EditViewModel>(R.layout.a
 
     }
 
-    //compres photo
-    //foto saja yang ganti bisa namun username tetap di isi sama dan data akan memberi respon
     private fun validateForm() {
         val name = binding.etNameProfil.textOf()
 
@@ -86,8 +65,6 @@ class EditActivity : BaseActivity<ActivityEditBinding, EditViewModel>(R.layout.a
             tos("Username tidak boleh kosong")
             return
         }
-
-        //untuk foto saja
         if (photoFile == null) {
             if (name == username) {
                 tos("Tidak ada yang berubah")
@@ -106,7 +83,6 @@ class EditActivity : BaseActivity<ActivityEditBinding, EditViewModel>(R.layout.a
 
     }
 
-    //compres photo
     suspend fun compressFile(filePhoto: File): File? {
         println("Compress 1")
         try {
@@ -169,19 +145,6 @@ class EditActivity : BaseActivity<ActivityEditBinding, EditViewModel>(R.layout.a
                                 loadingDialog.setResponse("Else kondisi")
                             }
                         }
-                        /*if (it == 0) {
-                            loadingDialog.setResponse("Gagal renew token")
-                        } else if (it == 1){
-                            val nama = binding.etNameProfil.textOf()
-                            viewModel.updateProfile(nama)
-                        } else if (it == 2) {
-                            val nama = binding.etNameProfil.textOf()
-                            if (photoFile != null) {
-                                viewModel.updateProfileWithPhoto(nama, photoFile!!)
-                            }
-                        } else {
-                            loadingDialog.setResponse("Else kondisi")
-                        }*/
                     }
 
                     viewModel.apiResponse.collect {
@@ -261,7 +224,6 @@ class EditActivity : BaseActivity<ActivityEditBinding, EditViewModel>(R.layout.a
             val file = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
                 createImageFile()
             } else {
-                //File("${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)}" + File.separator + "BurgerBangor", getNewFileName())
                 File(externalCacheDir?.absolutePath, getNewFileName())
             }
 
@@ -333,14 +295,13 @@ class EditActivity : BaseActivity<ActivityEditBinding, EditViewModel>(R.layout.a
 
     @Throws(IOException::class)
     private fun createImageFile(): File {
-        // Create an image file name
         val timeStamp = DateTimeHelper().createAtLong().toString()
         val storageDir =
             getAppSpecificAlbumStorageDir(Environment.DIRECTORY_DOCUMENTS, "Attachment")
         return File.createTempFile(
-            "JPEG_${timeStamp}_", /* prefix */
-            ".jpg", /* suffix */
-            storageDir /* directory */
+            "JPEG_${timeStamp}_",
+            ".jpg",
+            storageDir
         )
     }
 
@@ -350,11 +311,8 @@ class EditActivity : BaseActivity<ActivityEditBinding, EditViewModel>(R.layout.a
     }
 
     private fun getAppSpecificAlbumStorageDir(albumName: String, subAlbumName: String): File {
-        // Get the pictures directory that's inside the app-specific directory on
-        // external storage.
         val file = File(getExternalFilesDir(albumName), subAlbumName)
         if (!file.mkdirs()) {
-            //Log.e("fssfsf", "Directory not created")
         }
         return file
     }

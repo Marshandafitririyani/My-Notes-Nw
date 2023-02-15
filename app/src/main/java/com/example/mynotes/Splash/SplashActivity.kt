@@ -17,7 +17,6 @@ class SplashActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //supaya tidak login ulang
         val userLogin = session.getString(Const.USER.PROFILE)
 
         tos("Cek Login: $userLogin")
@@ -25,11 +24,10 @@ class SplashActivity :
         viewModel.splash {
             if (userLogin == "Login") {
                 openActivity<HomeActivity>()
-                finish()
             } else {
                 openActivity<LoginActivity>()
-                finish()
             }
+            finish()
         }
     }
 }

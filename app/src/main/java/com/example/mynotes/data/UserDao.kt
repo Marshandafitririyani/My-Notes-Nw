@@ -2,11 +2,8 @@ package com.example.mynotes.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Query
-import androidx.room.Update
 import com.crocodic.core.data.CoreDao
-import retrofit2.http.PATCH
 
 @Dao
 interface UserDao : CoreDao<User> {

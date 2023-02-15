@@ -1,10 +1,8 @@
 package com.example.mynotes.add
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
 import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -12,12 +10,12 @@ import com.crocodic.core.api.ApiStatus
 import com.crocodic.core.extension.isEmptyRequired
 import com.crocodic.core.extension.openActivity
 import com.crocodic.core.extension.textOf
+import com.crocodic.core.helper.DateTimeHelper
 import com.example.mynotes.Base.BaseActivity
 import com.example.mynotes.R
 import com.example.mynotes.const.Const
 import com.example.mynotes.data.Note
 import com.example.mynotes.databinding.ActivityAddNotesBinding
-import com.example.mynotes.databinding.ActivityLoginBinding
 import com.example.mynotes.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -34,7 +32,6 @@ class AddNoteActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //getparcelabl untuk getExstra
         note = intent.getParcelableExtra(Const.NOTE.NOTE)
 
         oldTitle = note?.title
@@ -42,46 +39,20 @@ class AddNoteActivity :
 
         binding.nameNote = note
 
-        //untuk date
         title = "KotlinApp"
         val text: TextView = findViewById(R.id.date_note)
         val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
-        val dateString = simpleDateFormat.format(note?.updated_at ?: 9897546853323L)
+        val dateString =
+            simpleDateFormat.format(note?.updated_At ?: DateTimeHelper().createAtLong())
         text.text = String.format("Date: %s", dateString)
+
+
 
         initClick()
         observe()
-        /*fun edit() {
-            try {
-                val intent = Intent(this, AddNoteActivity::class.java).apply {
-                    putExtra("noteContent", intent.getIntExtra("noteContent", 0))
-                    putExtra("noteId", intent.getStringExtra("noteId").toString())
-                    putExtra("noteTitle", intent.getStringExtra("noteTitle").toString())
-
-                }
-                startActivity(intent)
-                finish()
-            } catch (e: Exception) {
-                val intent = Intent(this, AddNoteActivity::class.java).apply {
-                    putExtra("noteContent", intent.getIntExtra("noteContent", 0))
-                    putExtra("noteId", intent.getStringExtra("noteId").toString())
-                    putExtra("noteTitle", intent.getStringExtra("noteTitle").toString())
-
-                }
-                startActivity(intent)
-                finish()
-                Toast.makeText(
-                    this,
-                    "Gambar mungkin tidak akan muncul, karena ukurannya yang besar. Silahkan edit kembali",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-        }*/
-
     }
 
     private fun initClick() {
-        //tombol back juga bisa untuk menyimpan note yg telah dibuat
         binding.ivKembali.setOnClickListener {
             val title = binding.etAddTitle.textOf()
             val content = binding.etAddCon.textOf()
@@ -105,7 +76,6 @@ class AddNoteActivity :
 
         }
 
-        //untuk save note
         binding.btnSaveAdd.setOnClickListener {
             val title = binding.etAddTitle.textOf()
             val content = binding.etAddCon.textOf()
@@ -117,7 +87,6 @@ class AddNoteActivity :
                 return@setOnClickListener
             }
 
-            //untuk membuat note
             if (oldTitle.isNullOrEmpty() && oldContent.isNullOrEmpty()) {
                 viewModel.createNote(title, content)
             } else {
@@ -130,7 +99,6 @@ class AddNoteActivity :
             }
         }
 
-        //untuk delet note
         binding.btnDelet.setOnClickListener {
             if (note != null) {
                 viewModel.deletNote(note!!.id)
@@ -141,7 +109,6 @@ class AddNoteActivity :
 
 
     private fun observe() {
-        //refresh token
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
@@ -172,7 +139,6 @@ class AddNoteActivity :
 
                     }
                 }
-                //respon
                 launch {
                     viewModel.apiResponse.collect {
                         when (it.status) {

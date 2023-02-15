@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".home.screen.HomeFragment">
@@ -28,19 +29,21 @@
             app:queryHint="search notes"
             tools:text="search" />
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="30dp"
-            app:reverseLayout="true"
-            app:stackFromEnd="true"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/searchhome"
+            app:layout_constraintVertical_bias="0.366"
+            app:reverseLayout="true"
+            app:stackFromEnd="true"
             tools:itemCount="0"
+            tools:layout_editor_absoluteX="30dp"
             tools:listitem="@layout/custome_card" />
-
 
         <TextView
             android:id="@+id/tv_kosong"

@@ -20,54 +20,42 @@ interface ApiService {
         @Field("password") password: String?,
     ): String
 
-    //membuat Profil
     @FormUrlEncoded
     @PATCH("user/profile")
     suspend fun updateProfile(
         @Field("name") name: String?
-    ): String //<-
+    ): String
 
     @Multipart
     @PATCH("user/profile")
     suspend fun updateProfileWithPhoto(
         @Part("name") name: String?,
         @Part photo: MultipartBody.Part?
-    ): String //<-
+    ): String
 
-    //menampilkan Profil
-    @PATCH("user/profile")
-    suspend fun profile(): String //<-
-
-    //membuat note
     @FormUrlEncoded
     @POST("note/")
     suspend fun createNote(
         @Field("title") title: String?,
         @Field("content") content: String?
-    ): String //<-
+    ): String
 
-    //menampilkan Note
     @GET("note/")
-    suspend fun note(): String //<-
+    suspend fun note(): String
 
-
-    //updateNote
     @FormUrlEncoded
     @PATCH("note/{id}")
     suspend fun updateNote(
         @Path("id") id: String?,
         @Field("title") title: String?,
         @Field("content") content: String?
-    ): String //<-
+    ): String
 
-    //delet note
     @DELETE("note/{id}")
     suspend fun deletNote(
         @Path("id") id: String?
-    ): String //<-
+    ): String
 
-
-    // Token
     @GET("user/get-token")
     suspend fun getToken(): String
 

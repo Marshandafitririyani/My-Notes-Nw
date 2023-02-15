@@ -6,7 +6,6 @@ import com.crocodic.core.helper.okhttp.SSLTrust
 import com.example.mynotes.BuildConfig
 import com.example.mynotes.api.ApiService
 import com.example.mynotes.const.Const
-//import com.example.mynotes.api.ApiService
 import com.example.mynotes.data.AppDatabase
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
