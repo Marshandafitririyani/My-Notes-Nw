@@ -75,6 +75,7 @@
                 android:background="@drawable/custome_background_text_view_3"
                 android:fontFamily="@font/poppinsregular"
                 android:hint="typing email"
+                android:inputType="textEmailAddress"
                 android:padding="8dp" />
 
 
@@ -121,7 +122,8 @@
                 android:layout_marginTop="@dimen/_50sdp"
                 android:backgroundTint="@color/teal_200"
                 android:fontFamily="@font/poppinsmedium"
-                android:text="login"
+                android:textAllCaps="false"
+                android:text="Login"
                 android:textSize="@dimen/_20ssp" />
 
             <Button
@@ -133,6 +135,7 @@
                 android:backgroundTint="@color/trasparan"
                 android:fontFamily="@font/poppinsmedium"
                 android:text="Register"
+                android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_20ssp"
 

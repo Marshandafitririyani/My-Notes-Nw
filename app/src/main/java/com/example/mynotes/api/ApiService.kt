@@ -6,14 +6,14 @@ import retrofit2.http.*
 
 interface ApiService {
     @FormUrlEncoded
-    @POST("User/login?expired=1")
+    @POST("user/login?expired=1")
     suspend fun login(
         @Field("email") email: String?,
         @Field("password") password: String?
     ): String
 
     @FormUrlEncoded
-    @POST("User")
+    @POST("user")
     suspend fun register(
         @Field("name") name: String?,
         @Field("email") email: String?,
