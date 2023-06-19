@@ -10,12 +10,17 @@
             type="com.example.mynotes.edit.EditActivity" />
 
         <variable
+            name="photo"
+            type="String" />
+
+        <variable
             name="name"
             type="String" />
 
         <variable
             name="email"
             type="String" />
+
 
     </data>
 
@@ -79,6 +84,7 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/EditPhoto"
+                    imageUrl='@{photo}'
                     android:layout_width="130dp"
                     android:layout_height="130dp"
                     android:layout_gravity="center"

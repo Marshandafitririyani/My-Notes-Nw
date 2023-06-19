@@ -20,11 +20,14 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.crocodic.core.api.ApiStatus
 import com.crocodic.core.extension.*
 import com.crocodic.core.helper.DateTimeHelper
@@ -63,18 +66,20 @@ class EditActivity : BaseActivity<ActivityEditBinding, EditViewModel>(R.layout.a
 
     private var photoFile: File? = null
     private var username: String? = null
+    private var photo: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         //untuk getExstra menyimpan username
+        photo = intent.getStringExtra("photoFile")
         username = intent.getStringExtra("username")
         binding.activity = this
+        binding.photo = photo
         binding.etNameProfil.setText(username)
 
         initClick()
         observe()
-
     }
 
     //compres photo
@@ -190,13 +195,29 @@ class EditActivity : BaseActivity<ActivityEditBinding, EditViewModel>(R.layout.a
                             ApiStatus.SUCCESS -> {
                                 tos(it.message ?: "Succes Update Profile")
                                 loadingDialog.dismiss()
-                                openActivity<EditActivity>()
                                 finish()
                             }
                             else -> loadingDialog.setResponse(it.message ?: return@collect)
                         }
                     }
                 }
+//                /*launch {
+//                    viewModel.getUser.observe(this@EditActivity) {
+//                        it?.let { data ->
+//                            binding?.activity = data
+//                            binding?.let { viewImage ->
+//                                //untuk profilenya
+//                                Glide
+//                                    .with(requireContext())
+//                                    .load(it.photo)
+//                                    .placeholder(R.drawable.picture)
+//                                    .error(R.drawable.error)
+//                                    .apply(RequestOptions.centerInsideTransform())
+//                                    .into(viewImage.ivImage)
+//                            }
+//                        }
+//                    }
+//                }*/
             }
         }
     }

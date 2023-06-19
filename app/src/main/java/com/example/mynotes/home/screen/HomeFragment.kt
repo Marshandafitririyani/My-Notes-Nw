@@ -51,7 +51,7 @@ class HomeFragment : Fragment<FragmentHomeBinding>(R.layout.fragment_home) {
         //fungsi untuk filter search
         binding?.searchhome?.doOnTextChanged { text, start, before, count ->
             if (note.isEmpty()) {
-                activity?.tos("kosong")
+                activity?.tos("Note file is empty")
             }
             if (text.isNullOrEmpty()) {
                 note.clear()
@@ -93,7 +93,7 @@ class HomeFragment : Fragment<FragmentHomeBinding>(R.layout.fragment_home) {
         Timber.d("cek")
 
 //toast untuk memunculkan nama activity yg di klik
-        Toast.makeText(context, "Home", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(context, "Home", Toast.LENGTH_SHORT).show()
 
 //observe untuk memanggil getnotnya (sek masih lupa)
         viewmodel.isRefresh.observe(requireActivity()) {
@@ -125,8 +125,6 @@ class HomeFragment : Fragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
 //memanggil getNotenya
         viewmodel.getNote()
-
-
     }
 }
 

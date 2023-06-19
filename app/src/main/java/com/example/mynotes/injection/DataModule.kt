@@ -79,7 +79,7 @@ class DataModule {
     @Provides
     fun provideApiService(okHttpClient: OkHttpClient): ApiService {
         return Retrofit.Builder()
-            .baseUrl("http://34.101.195.43/api/")
+            .baseUrl("http://3.1.6.193/api/")
             .addConverterFactory(ScalarsConverterFactory.create())
             .client(okHttpClient)
             .build().create(ApiService::class.java)

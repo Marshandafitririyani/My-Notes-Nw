@@ -35,7 +35,7 @@ class ProfilFragment : Fragment<FragmentProfilBinding>(R.layout.fragment_profil)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Toast.makeText(context, "Profile", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(context, "Profile", Toast.LENGTH_SHORT).show()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,6 +47,7 @@ class ProfilFragment : Fragment<FragmentProfilBinding>(R.layout.fragment_profil)
 
         buttonEdit.setOnClickListener {
             val kembali = Intent(requireContext(), EditActivity::class.java).apply {
+                putExtra("photoFile", binding?.user?.photo)
                 putExtra("username", binding?.user?.name)
             }
             startActivity(kembali)

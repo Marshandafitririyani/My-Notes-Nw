@@ -40,10 +40,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
         //untuk masuk ke activity register
         binding.btnRegister.setOnClickListener {
             tokenApi()
-
-            openActivity<RegisterActivity>() {
-                finish()
-            }
+            openActivity<RegisterActivity>()
         }
 
         //menyimpan login

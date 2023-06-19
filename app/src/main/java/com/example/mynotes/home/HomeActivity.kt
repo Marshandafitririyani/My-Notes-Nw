@@ -41,7 +41,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
         //untuk flotingbottomnya
         binding.btnAddHome.setOnClickListener {
             openActivity<AddNoteActivity> {
-//                finish()
+
             }
         }
         replesFragment(homeFragment)

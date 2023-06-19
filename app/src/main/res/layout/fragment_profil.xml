@@ -26,9 +26,11 @@
                 android:id="@+id/tvLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_margin="10dp"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:fontFamily="@font/poppinsmedium"
-                android:text="Profil"
+                android:text="Profile"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
 
@@ -63,53 +65,55 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="?selectableItemBackground"
+                android:foreground="?selectableItemBackground"
+                >
 
 
                 <TextView
-                    android:id="@+id/editProfil"
-                    android:layout_width="200dp"
-                    android:layout_height="match_parent"
+                    android:id="@+id/editProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="35dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
                     android:fontFamily="@font/poppinsmedium"
-                    android:text="Edit Profil"
+                    android:text="Edit Profile"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <ImageView
                     android:id="@+id/rectangleProfil"
                     android:layout_width="30dp"
-                    android:layout_height="70dp"
-                    android:layout_marginStart="80dp"
-                    android:background="?selectableItemBackground"
-                    android:foreground="?selectableItemBackground"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="170dp"
                     android:src="@drawable/ic_person" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="?selectableItemBackground"
+                android:foreground="?selectableItemBackground">
 
                 <TextView
                     android:id="@+id/Logout"
-                    android:layout_width="200dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="35dp"
-                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/poppinsmedium"
                     android:text="Logout"
+                    android:layout_gravity="center"
                     android:textColor="@color/red"
                     android:textSize="20sp" />
 
                 <ImageView
                     android:id="@+id/rectangleLogout"
                     android:layout_width="30dp"
-                    android:layout_height="70dp"
-                    android:layout_marginStart="80dp"
-                    android:background="?selectableItemBackground"
-                    android:foreground="?selectableItemBackground"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="210dp"
                     android:src="@drawable/ic_logout" />
             </LinearLayout>
         </LinearLayout>

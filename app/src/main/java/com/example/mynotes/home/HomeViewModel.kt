@@ -40,8 +40,7 @@ class HomeViewModel @Inject constructor(
     fun getNote() = viewModelScope.launch {
         ApiObserver({ apiService.note() }, false, object : ApiObserver.ResponseListener {
             override suspend fun onSuccess(response: JSONObject) {
-                val data =
-                    response.getJSONArray(ApiCode.DATA).toList<Note>(gson)
+                val data = response.getJSONArray(ApiCode.DATA).toList<Note>(gson)
                 dataNote.postValue(data)
                 Timber.d("cek api ${data.size}")
             }

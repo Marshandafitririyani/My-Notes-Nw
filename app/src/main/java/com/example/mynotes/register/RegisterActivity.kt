@@ -28,7 +28,6 @@ class RegisterActivity :
 
         //kembali ke logogin
         binding.ivBack.setOnClickListener {
-            tos("You are not register?")
             openActivity<LoginActivity>() {
                 finish()
             }
@@ -54,9 +53,8 @@ class RegisterActivity :
                     viewModel.apiResponse.collect {
                         when (it.status) {
                             ApiStatus.LOADING -> loadingDialog.show("Please Wait Register")
-                            ApiStatus.SUCCESS -> { loadingDialog.show("Succes")
+                            ApiStatus.SUCCESS -> { loadingDialog.dismiss()
                                 openActivity<LoginActivity>()
-                                tos("Please Login")
                                 finish()
                             }
                             else -> loadingDialog.setResponse(it.message ?: return@collect)
